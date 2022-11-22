@@ -54,6 +54,24 @@ export class FormModalComponent implements OnInit {
       appointment_date: this.AppointmentsForm.value.appointment_date,
 
       //* Sending Selected Doctor Data To Append This Data In Patients Schema
+      doctor_full_name: null,
+      doctor_education: null,
+      doctor_img: null,
+      doctor_specialty: null,
+      doctor_age: null,
+      doctor_isVerified: null,
+      doctor_SuperExperienced: null,
+      doctor_clinic_address: null,
+      doctor_city: null,
+      doctor_state: null,
+      doctor_country: null,
+      doctor_appointment_date: null,
+    });
+  }
+  SubmitForm() {
+    //* Patching The Api Doctor Appointment Date Into Form
+    this.AppointmentsForm.patchValue({
+      //* Sending Selected Doctor Data To Append This Data In Patients Schema
       doctor_full_name: this.DoctorData.full_name,
       doctor_education: this.DoctorData.education,
       doctor_img: this.DoctorData.img,
@@ -65,27 +83,21 @@ export class FormModalComponent implements OnInit {
       doctor_city: this.DoctorData.city,
       doctor_state: this.DoctorData.state,
       doctor_country: this.DoctorData.country,
-      doctor_appointment_date: null,
+      doctor_appointment_date: this.AppointmentsForm.value.appointment_date,
     });
-  }
-  SubmitForm() {
-    // //* Patching The Api Doctor Appointment Date Into Form
-    // this.AppointmentsForm.patchValue({
-    //   doctor_appointment_date: this.AppointmentsForm.value.appointment_date,
-    // });
 
-    // //* Book Appointment API called
-    // this._Service
-    //   .BookDocAppointment(this.AppointmentsForm.value)
-    //   .subscribe(async (data) => {
-    //     if (data.status == 201) {
-    //       //* Opening Alert Modal WIth This Method
-    //       this._ModalService.OpenAlertDialog('booking_request_success');
-    //       //* Closing Form Dialog Box With This Method
-    //       this.FormDialogBox.close();
-    //     }
-    //     console.log(data, 'RESPONSE DATA OF MODAL');
-    //   });
+    //* Book Appointment API called
+    this._Service
+      .BookDocAppointment(this.AppointmentsForm.value)
+      .subscribe(async (data) => {
+        if (data.status == 201) {
+          //* Opening Alert Modal WIth This Method
+          this._ModalService.OpenAlertDialog('booking_request_success');
+          //* Closing Form Dialog Box With This Method
+          this.FormDialogBox.close();
+        }
+        console.log(data, 'RESPONSE DATA OF MODAL');
+      });
 
     console.log(this.AppointmentsForm.value);
   }
