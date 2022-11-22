@@ -1,0 +1,139 @@
+<!-- <app-header></app-header> -->
+<!--Register Form Start-->
+<div class="dc-haslayout dc-main-section">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 push-lg-2">
+        <div class="dc-registerformhold">
+          <div class="dc-registerformmain">
+            <div class="dc-registerhead">
+              <div class="dc-title">
+                <h3>Register Pharmacy</h3>
+              </div>
+              <div class="dc-description">
+                <p>
+                  Consectetur adipisicing elit sed dotem eiusmod tempor incune
+                  utnaem labore etdolore maigna aliqua enim poskina
+                </p>
+              </div>
+            </div>
+            <div class="dc-joinforms">
+              <form
+                [formGroup]="PharmacyForm"
+                class="dc-formtheme dc-formregister"
+              >
+                <fieldset class="dc-registerformgroup">
+                  <div class="form-group form-group-full">
+                    <input
+                      formControlName="pharmacy_name"
+                      type="text"
+                      name="Pharmacy Name"
+                      class="form-control"
+                      placeholder="Pharmacy Name"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      formControlName="email"
+                      type="text"
+                      name="Email"
+                      class="form-control"
+                      placeholder="Email"
+                    />
+                  </div>
+                  <div class="form-group form-group-half">
+                    <input
+                      formControlName="phone"
+                      type="text"
+                      name="Phone"
+                      class="form-control"
+                      placeholder="Phone"
+                    />
+                  </div>
+                  <div class="form-group form-group-half">
+                    <input
+                      formControlName="address"
+                      type="text"
+                      name="Address"
+                      class="form-control"
+                      placeholder="Address"
+                    />
+                  </div>
+                  <div class="form-group form-group-half">
+                    <input
+                      formControlName="city"
+                      type="text"
+                      name="City"
+                      class="form-control"
+                      placeholder="City"
+                    />
+                  </div>
+                  <div class="form-group form-group-half">
+                    <input
+                      formControlName="state"
+                      type="text"
+                      name="State"
+                      class="form-control"
+                      placeholder="State"
+                    />
+                  </div>
+                  <div class="form-group form-group-full">
+                    <input
+                      formControlName="country"
+                      type="text"
+                      name="Country"
+                      class="form-control"
+                      placeholder="Country"
+                    />
+                  </div>
+                  <div class="form-group form-group-half">
+                    <input
+                      formControlName="password"
+                      type="password"
+                      name="Password"
+                      class="form-control"
+                      placeholder="Password"
+                    />
+                  </div>
+                  <div class="form-group form-group-half">
+                    <input
+                      formControlName="cpassword"
+                      type="password"
+                      name="Confirm Password"
+                      class="form-control"
+                      placeholder="Confirm Password"
+                    />
+                  </div>
+
+                  <div class="form-group form-group-full">
+                    <input
+                      class="form-control form-control-sm"
+                      (change)="GetImg($event)"
+                      formControlName="img"
+                      id="formFileSm"
+                      type="file"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <button type="submit" (click)="Register()" class="dc-btn">
+                      Register
+                    </button>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+          <div class="dc-registerformfooter">
+            <span
+              >Already Have an Account?
+              <a href="javascript:void(0);">Login Now</a></span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Register Form End-->
+<!-- <app-footer></app-footer> -->

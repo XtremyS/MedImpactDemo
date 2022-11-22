@@ -1,0 +1,238 @@
+<!-- <app-header></app-header> -->
+<!--Register Form Start-->
+<div class="dc-haslayout dc-main-section">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 push-lg-2">
+        <div class="dc-registerformhold">
+          <div class="dc-registerformmain">
+            <div class="dc-registerhead">
+              <div class="dc-title">
+                <h3>Join As a Doctor</h3>
+              </div>
+              <div class="dc-description">
+                <p>
+                  Consectetur adipisicing elit sed dotem eiusmod tempor incune
+                  utnaem labore etdolore maigna aliqua enim poskina
+                </p>
+              </div>
+            </div>
+            <div class="dc-joinforms">
+              <form
+                [formGroup]="DoctorForm"
+                (ngSubmit)="Register()"
+                method="POST"
+                enctype="multipart/form-data"
+                class="dc-formtheme dc-formregister"
+              >
+                <fieldset class="dc-registerformgroup">
+                  <div
+                    class="form-group dc-form-group-dropdown form-group-full"
+                  >
+                    <span class="dc-select">
+                      <select
+                        class="form-select"
+                        aria-label="Default select example"
+                        formControlName="gender"
+                        placeholder="Gender"
+                      >
+                        <option selected disabled>Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                      </select>
+                    </span>
+                    <input
+                      formControlName="full_name"
+                      type="text"
+                      name="Full Name"
+                      class="form-control"
+                      placeholder="Full Name"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      formControlName="email"
+                      type="text"
+                      name="Email"
+                      class="form-control"
+                      placeholder="Email"
+                    />
+                  </div>
+                  <div class="form-group form-group-half">
+                    <input
+                      formControlName="phone"
+                      type="text"
+                      name="Phone"
+                      class="form-control"
+                      placeholder="Phone"
+                    />
+                  </div>
+                  <div class="form-group form-group-half">
+                    <input
+                      formControlName="age"
+                      type="text"
+                      name="Age"
+                      class="form-control"
+                      placeholder="Age"
+                    />
+                  </div>
+                  <!--* EDUCATION FIELD  -->
+                  <div class="form-group form-group-half">
+                    <mat-form-field class="example-chip-list" appearance="fill">
+                      <mat-chip-list
+                        #chipListEducation
+                        aria-label="Education selection"
+                      >
+                        <mat-chip
+                          class="mat_chips"
+                          *ngFor="let Data of EducationValue"
+                          (removed)="RemoveEducation(Data)"
+                        >
+                          {{ Data }}
+                          <button matChipRemove>
+                            <mat-icon>cancel</mat-icon>
+                          </button>
+                        </mat-chip>
+                        <input
+                          placeholder="Add Education"
+                          #EducationInput
+                          [formControl]="EducationFormControl"
+                          [matAutocomplete]="autoEducation"
+                          [matChipInputFor]="chipListEducation"
+                          [matChipInputSeparatorKeyCodes]="
+                            separatorKeysCodesEducation
+                          "
+                          (matChipInputTokenEnd)="AddEducation($event)"
+                        />
+                      </mat-chip-list>
+                      <mat-autocomplete
+                        #autoEducation="matAutocomplete"
+                        (optionSelected)="SelectedEducation($event)"
+                      >
+                        <mat-option
+                          *ngFor="let Data of FilterdEducationArray | async"
+                          [value]="Data"
+                        >
+                          {{ Data }}
+                        </mat-option>
+                      </mat-autocomplete>
+                    </mat-form-field>
+                  </div>
+                  <!--* Specialty FIELD -->
+                  <div class="form-group form-group-half">
+                    <mat-form-field class="example-chip-list" appearance="fill">
+                      <mat-chip-list
+                        #chipListSpecialty
+                        aria-label="Specialty selection"
+                      >
+                        <mat-chip
+                          class="mat_chips"
+                          *ngFor="let Data of SpecialtyValue"
+                          (removed)="RemoveSpecialty(Data)"
+                        >
+                          {{ Data }}
+                          <button matChipRemove>
+                            <mat-icon>cancel</mat-icon>
+                          </button>
+                        </mat-chip>
+                        <input
+                          placeholder="Add Specialty"
+                          #SpecialtyInput
+                          [formControl]="SpecialtyFormControl"
+                          [matAutocomplete]="autoSpecialty"
+                          [matChipInputFor]="chipListSpecialty"
+                          [matChipInputSeparatorKeyCodes]="
+                            separatorKeysCodesSpecialty
+                          "
+                          (matChipInputTokenEnd)="AddSpecialty($event)"
+                        />
+                      </mat-chip-list>
+                      <mat-autocomplete
+                        #autoSpecialty="matAutocomplete"
+                        (optionSelected)="SelectedSpecialty($event)"
+                      >
+                        <mat-option
+                          *ngFor="let Data of FilteredSpecialtyArray | async"
+                          [value]="Data"
+                        >
+                          {{ Data }}
+                        </mat-option>
+                      </mat-autocomplete>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="form-group form-group-full">
+                    <input
+                      formControlName="clinic_address"
+                      type="text"
+                      name="clinic_address"
+                      class="form-control"
+                      placeholder="Clinic Address"
+                    />
+                  </div>
+                  <div class="form-group form-group-half">
+                    <input
+                      formControlName="city"
+                      type="text"
+                      name="City"
+                      class="form-control"
+                      placeholder="City"
+                    />
+                  </div>
+                  <div class="form-group form-group-half">
+                    <input
+                      formControlName="state"
+                      type="text"
+                      name="State"
+                      class="form-control"
+                      placeholder="State"
+                    />
+                  </div>
+                  <div class="form-group form-group-full">
+                    <input
+                      formControlName="country"
+                      type="text"
+                      name="Country"
+                      class="form-control"
+                      placeholder="Country"
+                    />
+                  </div>
+                  <div class="form-group form-group-half">
+                    <input
+                      formControlName="password"
+                      type="text"
+                      name="Password"
+                      class="form-control"
+                      placeholder="Password"
+                    />
+                  </div>
+                  <div class="form-group form-group-half">
+                    <input
+                      formControlName="cpassword"
+                      type="text"
+                      name="Confirm Password"
+                      class="form-control"
+                      placeholder="Confirm Password"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <button type="submit" class="dc-btn">Register</button>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+          <div class="dc-registerformfooter">
+            <span
+              >Already Have an Account?
+              <a href="javascript:void(0);">Login Now</a></span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Register Form End-->
+<!-- <app-footer></app-footer> -->

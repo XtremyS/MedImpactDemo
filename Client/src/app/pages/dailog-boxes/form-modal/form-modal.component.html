@@ -1,0 +1,64 @@
+<form action="" [formGroup]="AppointmentsForm">
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label"
+      >Patients Name</label
+    >
+    <input
+      type="text"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="Name"
+      formControlName="patients_name"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label"
+      >Patients Age</label
+    >
+    <input
+      type="text"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="Age"
+      formControlName="patients_age"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label"
+      >Patients Phone Number</label
+    >
+    <input
+      type="text"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="Number"
+      formControlName="patients_phone"
+    />
+  </div>
+  <div class="mb-3 date_container">
+    <label for="dateofbirth">Date Of Appointment</label>
+    <input
+      formControlName="appointment_date"
+      type="date"
+      form
+      name="dateofbirth"
+      id="dateofbirth"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label"
+      >Visiting Reason</label
+    >
+    <textarea
+      class="form-control text_area"
+      id="exampleFormControlTextarea1"
+      rows="3"
+      placeholder="Please Write Visiting Reason"
+      formControlName="visiting_reason"
+    ></textarea>
+  </div>
+  <button type="button" (click)="SubmitForm()" class="btn btn-success">
+    Submit
+  </button>
+</form>

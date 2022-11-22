@@ -1,0 +1,91 @@
+<div class="content-wrapper">
+  <div
+    class="col-md-12 grid-margin stretch-card"
+    style="padding-left: 0; padding-right: 0"
+  >
+    <div class="manage_patient_parent_container">
+      <h4 class="card-header p-4">Manage Patients</h4>
+      <div class="p-4 table-responsive">
+        <div class="card mb-4">
+          <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            DataTable Example
+          </div>
+          <div class="table_parent_container">
+            <table
+              class="table"
+              style="margin-bottom: 0"
+              id="dataTable"
+              width="100%"
+              cellspacing="0"
+            >
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Age</th>
+                  <th>Phone Number</th>
+                  <th>Appointment Date</th>
+                  <th>Visiting Reason</th>
+                  <th>Appointment Status</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>Name</th>
+                  <th>Age</th>
+                  <th>Phone Number</th>
+                  <th>Appointment Date</th>
+                  <th>Visiting Reason</th>
+                  <th>Appointment Status</th>
+                </tr>
+              </tfoot>
+              <tbody>
+                <ng-container *ngIf="AppointmentsArray.length == 0">
+                  <tr>
+                    <td colspan="6">No Appointments Yet.</td>
+                  </tr>
+                </ng-container>
+                <ng-container *ngFor="let Patients of AppointmentsArray">
+                  <tr>
+                    <td>{{ Patients.patients_name }}</td>
+                    <td>{{ Patients.patients_age }}</td>
+                    <td>{{ Patients.patients_phone }}</td>
+                    <td>{{ Patients.appointment_date }}</td>
+                    <td>{{ Patients.visiting_reason }}</td>
+
+                    <ng-container *ngIf="Patients.appointment_status == 2">
+                      <td style="color: orange">
+                        Pending
+                        <ng-container *ngIf="BtnsIsVisible">
+                          <button
+                            class="btn-success btn-sm"
+                            (click)="Approve(Patients, 'Approved')"
+                          >
+                            Approve
+                          </button>
+                          <button
+                            class="btn-danger btn-sm"
+                            (click)="Approve(Patients, 'Rejected')"
+                          >
+                            Reject
+                          </button>
+                        </ng-container>
+                      </td>
+                    </ng-container>
+
+                    <ng-container *ngIf="Patients.appointment_status == 1">
+                      <td style="color: green">Approved</td>
+                    </ng-container>
+                    <ng-container *ngIf="Patients.appointment_status == 0">
+                      <td style="color: red">Rejected</td>
+                    </ng-container>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

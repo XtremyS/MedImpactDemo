@@ -1,0 +1,296 @@
+<!-- Header Start -->
+<header id="dc-header" class="dc-header dc-haslayout">
+  <div class="dc-topbar">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="dc-helpnum">
+            <span>Emergency Help!</span>
+            <a href="tel:123456789">+1 234 5678 - 9</a>
+          </div>
+          <div class="dc-rightarea">
+            <ul class="dc-simplesocialicons dc-socialiconsborder">
+              <li class="dc-facebook">
+                <a href="javascript:void(0);"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+              </li>
+              <li class="dc-twitter">
+                <a href="javascript:void(0);"><i class="fab fa-twitter"></i></a>
+              </li>
+              <li class="dc-linkedin">
+                <a href="javascript:void(0);"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+              </li>
+              <li class="dc-googleplus">
+                <a href="javascript:void(0);"
+                  ><i class="fab fa-google-plus-g"></i
+                ></a>
+              </li>
+              <li class="dc-rss">
+                <a href="javascript:void(0);"><i class="fas fa-rss"></i></a>
+              </li>
+              <li class="dc-youtube">
+                <a href="javascript:void(0);"><i class="fab fa-youtube"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dc-navigationarea">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+          <strong class="dc-logo"
+            ><a href="index.html"
+              ><img
+                src="../../../assets/images/logo.png"
+                alt="company logo here" /></a
+          ></strong>
+          <div class="dc-rightarea">
+            <nav id="dc-nav" class="dc-nav navbar-expand-lg">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <i class="lnr lnr-menu"></i>
+              </button>
+              <div
+                class="collapse navbar-collapse dc-navigation"
+                id="navbarNav"
+              >
+                <ul class="navbar-nav">
+                  <li class="menu-item-has-children page_item_has_children">
+                    <a routerLink="/">Home</a>
+                  </li>
+                  <li class="menu-item-has-children page_item_has_children">
+                    <a routerLink="/doctor-list">Doctors</a>
+                  </li>
+                  <!-- <li class="menu-item-has-children page_item_has_children">
+                    <a href="javascript:void(0);">Labs</a>
+                    <ul class="sub-menu">
+                      <li><a routerLink="/radiology">Radiology</a></li>
+                      <li>
+                        <a routerLink="/pathology"> Pathology</a>
+                      </li>
+                    </ul>
+                  </li> -->
+                  <!--! Uncomment This For Actual Production  -->
+                  <!-- <li
+                    class="menu-item-has-children page_item_has_children dc-navactive"
+                  >
+                    <a href="javascript:void(0);">Pages</a>
+                    <ul class="sub-menu">
+                      <li class="menu-item-has-children page_item_has_children">
+                        <span class="dc-dropdowarrow"
+                          ><i class="lnr lnr-chevron-right"></i
+                        ></span>
+                        <a href="javascript:void(0);">Article</a>
+                        <ul class="sub-menu">
+                          <li>
+                            <a href="blog-list.html">Article List</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a routerLink="/doctor-details">Doctor Single</a>
+                      </li>
+                      <li>
+                        <a>Hospital Single</a>
+                      </li>
+                      <li>
+                        <a routerLink="/about-us">About</a>
+                      </li>
+                      <li>
+                        <a routerLink="/contact-us">Contact Us</a>
+                      </li>
+                       <li>
+                        <a routerLink="admin-dashboard">Admin Dashboard</a>
+                      </li>
+                    </ul>
+                  </li> -->
+                  <!--* Div Visible If User Logged In  -->
+                  <ng-container *ngIf="IsLoggedIn">
+                    <li class="menu-item-has-children page_item_has_children">
+                      <a href="javascript:void(0);">Profile</a>
+                      <ul class="sub-menu">
+                        <ng-container *ngIf="IsDocRouteVisible">
+                          <li>
+                            <a [routerLink]="DoctorDashBoardRoute"
+                              >Your Dashboard</a
+                            >
+                          </li>
+                        </ng-container>
+                        <ng-container *ngIf="IsPatientRouteVisible">
+                          <li>
+                            <a [routerLink]="PatientDashBoardRoute"
+                              >Your Dashboard</a
+                            >
+                          </li>
+                        </ng-container>
+
+                        <li>
+                          <a routerLink="" (click)="Logout()">Logout</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ng-container>
+
+                  <ng-container *ngIf="!IsLoggedIn">
+                    <li class="menu-item-has-children page_item_has_children">
+                      <a href="javascript:void(0);">Signup</a>
+                      <ul class="sub-menu">
+                        <li>
+                          <a routerLink="/register-doctor">Doctor</a>
+                        </li>
+                        <li>
+                          <a routerLink="/register-patient">User</a>
+                        </li>
+                        <!-- <li>
+                          <a routerLink="/register-lab">Lab</a>
+                        </li>
+                        <li>
+                          <a routerLink="/register-pharmacy">Pharmacy</a>
+                        </li> -->
+                      </ul>
+                    </li>
+                  </ng-container>
+                </ul>
+              </div>
+            </nav>
+            <ng-container *ngIf="!IsLoggedIn">
+              <div class="dc-loginarea">
+                <div class="dc-loginoption">
+                  <a
+                    href="javascript:void(0);"
+                    id="dc-loginbtn"
+                    class="dc-loginbtn"
+                    >Login
+                  </a>
+                  <div class="dc-loginformhold">
+                    <div class="dc-loginheader">
+                      <span>Login As</span>
+                      <a href="javascript:;"><i class="fa fa-times"></i></a>
+                    </div>
+
+                    <form
+                      [formGroup]="LoginForm"
+                      class="dc-formtheme dc-loginform do-login-form"
+                    >
+                      <ng-container *ngIf="IsLoginRadioBtnSelected">
+                        <p
+                          style="
+                            float: none;
+                            margin: 10px 0;
+                            text-align: center;
+                          "
+                        >
+                          Please Select Any Login User
+                          <i
+                            style="font-size: 15px; color: red"
+                            class="fa-solid fa-triangle-exclamation fa-shake"
+                          ></i>
+                        </p>
+                      </ng-container>
+
+                      <div class="radio_Btn_container">
+                        <label *ngFor="let radiobutton of radioItems">
+                          <input
+                            class="radio_btn_input"
+                            type="radio"
+                            name="options"
+                            (click)="model.option = radiobutton"
+                            [checked]="radiobutton === model.option"
+                          />{{ radiobutton }}
+                        </label>
+                      </div>
+
+                      <fieldset>
+                        <div class="form-group">
+                          <input
+                            formControlName="login_email"
+                            type="text"
+                            name="name"
+                            class="form-control"
+                            placeholder="Email"
+                          />
+                        </div>
+                        <div class="form-group">
+                          <input
+                            formControlName="login_password"
+                            type="password"
+                            name="password"
+                            class="form-control"
+                            placeholder="Password"
+                          />
+                        </div>
+                        <div class="dc-logininfo">
+                          <span class="dc-checkbox">
+                            <input
+                              id="dc-login"
+                              type="checkbox"
+                              name="rememberme"
+                            />
+                            <label for="dc-login">Keep me logged in</label>
+                          </span>
+                          <a
+                            href="javascript:;"
+                            (click)="Login()"
+                            class="dc-btn do-login-button"
+                            >Login</a
+                          >
+                        </div>
+                      </fieldset>
+                      <div class="dc-loginfooterinfo">
+                        <a href="javascript:;" class="dc-forgot-password"
+                          >Forgot password?</a
+                        >
+                        <a href="javascript:void(0);">Create account</a>
+                      </div>
+                    </form>
+                    <form
+                      class="dc-formtheme dc-loginform do-forgot-password-form dc-hide-form"
+                    >
+                      <fieldset>
+                        <div class="form-group">
+                          <input
+                            type="email"
+                            name="email"
+                            class="form-control get_password"
+                            placeholder="Email"
+                          />
+                        </div>
+
+                        <div class="dc-logininfo">
+                          <a href="javascript:;" class="dc-btn do-get-password"
+                            >Get Password</a
+                          >
+                        </div>
+                      </fieldset>
+                      <div class="dc-loginfooterinfo">
+                        <a href="javascript:void(0);" class="dc-show-login"
+                          >Login</a
+                        >
+                        <a href="javascript:void(0);">Create account</a>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Header End -->

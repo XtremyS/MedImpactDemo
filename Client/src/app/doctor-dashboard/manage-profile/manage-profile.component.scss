@@ -1,0 +1,48 @@
+.Week_Days_Div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Submit_Btn_Div {
+  margin: 7px;
+}
+
+.Availability_Div {
+  display: flex;
+  align-items: center;
+}
+
+.Radio_Btn_Child_Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form-check-label {
+  text-align: center;
+}
+
+.Manage_Profile_Img {
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+}
+.Full_Name_h5 {
+  color: black;
+  margin-top: 1rem;
+}
+
+.Radio_Btn_Parent_Div {
+  display: inline-flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  margin: 5px;
+  border-radius: 3px;
+}
+
+.Radio_Btn_Container {
+  display: flex;
+  justify-content: space-between;
+  width: 140px;
+}

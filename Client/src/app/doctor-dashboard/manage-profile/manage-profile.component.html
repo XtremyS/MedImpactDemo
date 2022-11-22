@@ -1,0 +1,703 @@
+<section class="Manage_Profile_Main_Container">
+  <div class="container py-5">
+    <!-- <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">User</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+              User Profile
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div> -->
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img
+              src="./../../../assets/images/doc-imgs/doc.jpg"
+              alt="avatar"
+              class="rounded-circle img-fluid Manage_Profile_Img"
+            />
+            <h5 class="Full_Name_h5">
+              {{ DoctorProfileData.full_name }}
+              <ng-container *ngIf="DoctorProfileData.isVerified">
+                <i
+                  style="color: #03b9ff"
+                  class="fa fa-check-circle dc-awardtooltip"
+                  ><em>Medical Registration Verified</em></i
+                >
+              </ng-container>
+            </h5>
+            <p class="text-muted mb-4">city, state, country</p>
+          </div>
+        </div>
+
+        <!--* Social Link Div  -->
+
+        <!-- <div class="card mb-4 mb-lg-0">
+          <div class="card-body p-0">
+            <ul class="list-group list-group-flush rounded-3">
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center p-3"
+              >
+                <i class="fas fa-globe fa-lg text-warning"></i>
+                <p class="mb-0">https://mdbootstrap.com</p>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center p-3"
+              >
+                <i class="fab fa-github fa-lg" style="color: #333333"></i>
+                <p class="mb-0">mdbootstrap</p>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center p-3"
+              >
+                <i class="fab fa-twitter fa-lg" style="color: #55acee"></i>
+                <p class="mb-0">@mdbootstrap</p>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center p-3"
+              >
+                <i class="fab fa-instagram fa-lg" style="color: #ac2bac"></i>
+                <p class="mb-0">mdbootstrap</p>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center p-3"
+              >
+                <i class="fab fa-facebook-f fa-lg" style="color: #3b5998"></i>
+                <p class="mb-0">mdbootstrap</p>
+              </li>
+            </ul>
+          </div>
+        </div> -->
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Age</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ DoctorProfileData.age }}</p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ DoctorProfileData.email }}</p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Gender</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ DoctorProfileData.gender }}</p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Mobile</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ DoctorProfileData.phone }}</p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Address</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">
+                  {{ DoctorProfileData.city }}, {{ DoctorProfileData.state }},
+                  {{ DoctorProfileData.country }}
+                </p>
+              </div>
+            </div>
+            <hr />
+
+            <!--* Days Of Work Div  -->
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Days of work</p>
+              </div>
+              <div class="col-sm-9 Week_Days_Div">
+                <div class="text-muted mb-0">
+                  <!--* Checking if Week Availability Status Is 1 Or Not   -->
+                  <ng-container
+                    *ngFor="let data of DoctorProfileData.availability"
+                  >
+                    <span
+                      [ngStyle]="{
+                        color: data.week_day1_status === 1 ? 'green' : 'red'
+                      }"
+                      >{{ data.week_day1 }}</span
+                    >,
+                  </ng-container>
+
+                  <ng-container
+                    *ngFor="let data of DoctorProfileData.availability"
+                  >
+                    <span
+                      [ngStyle]="{
+                        color: data.week_day2_status === 1 ? 'green' : 'red'
+                      }"
+                    >
+                      {{ data.week_day2 }}</span
+                    >,
+                  </ng-container>
+
+                  <ng-container
+                    *ngFor="let data of DoctorProfileData.availability"
+                  >
+                    <span
+                      [ngStyle]="{
+                        color: data.week_day3_status === 1 ? 'green' : 'red'
+                      }"
+                    >
+                      {{ data.week_day3 }}</span
+                    >,
+                  </ng-container>
+
+                  <ng-container
+                    *ngFor="let data of DoctorProfileData.availability"
+                  >
+                    <span
+                      [ngStyle]="{
+                        color: data.week_day4_status === 1 ? 'green' : 'red'
+                      }"
+                      >{{ data.week_day4 }} </span
+                    >,
+                  </ng-container>
+
+                  <ng-container
+                    *ngFor="let data of DoctorProfileData.availability"
+                  >
+                    <span
+                      [ngStyle]="{
+                        color: data.week_day5_status === 1 ? 'green' : 'red'
+                      }"
+                      >{{ data.week_day5 }} </span
+                    >,
+                  </ng-container>
+
+                  <ng-container
+                    *ngFor="let data of DoctorProfileData.availability"
+                  >
+                    <span
+                      [ngStyle]="{
+                        color: data.week_day6_status === 1 ? 'green' : 'red'
+                      }"
+                      >{{ data.week_day6 }} </span
+                    >,
+                  </ng-container>
+
+                  <ng-container
+                    *ngFor="let data of DoctorProfileData.availability"
+                  >
+                    <span
+                      [ngStyle]="{
+                        color: data.week_day7_status === 1 ? 'green' : 'red'
+                      }"
+                      >{{ data.week_day7 }}
+                    </span>
+                  </ng-container>
+                </div>
+                <div>
+                  <button
+                    class="btn-sm btn-warning"
+                    (click)="EditWorkingWeeks()"
+                  >
+                    Edit
+                  </button>
+                </div>
+              </div>
+            </div>
+            <hr />
+            <ng-container *ngIf="EditWorkingWeeksDiv">
+              <div class="row">
+                <div class="col-sm-3 Availability_Div">
+                  <p class="mb-0">Days of availability</p>
+                </div>
+                <div class="col-sm-9">
+                  <!--* Radio Btns -->
+                  <div class="Radio_Btn_Parent_Div">
+                    <div>
+                      <label class="form-check-label" for="inlineRadio1"
+                        ><strong>Sunday</strong>
+                      </label>
+                    </div>
+                    <div class="Radio_Btn_Container">
+                      <div class="Radio_Btn_Child_Container">
+                        <input
+                          [(ngModel)]="RadioValueSunday"
+                          type="radio"
+                          name="sunday"
+                          id="inlineRadio1"
+                          value="{{ 1 }}"
+                        />
+                        <label
+                          class="form-check-label"
+                          style="color: green"
+                          for="inlineRadio2"
+                          >Available
+                        </label>
+                      </div>
+                      <div class="Radio_Btn_Child_Container">
+                        <input
+                          [(ngModel)]="RadioValueSunday"
+                          type="radio"
+                          name="sunday"
+                          id="inlineRadio2"
+                          value="{{ 0 }}"
+                        />
+                        <label
+                          class="form-check-label"
+                          style="color: red"
+                          for="inlineRadio2"
+                          >Unavailable
+                        </label>
+                      </div>
+                    </div>
+                    <label class="form-check-label" for="inlineRadio2"
+                      >{{ RadioValueSunday }}
+                    </label>
+                  </div>
+
+                  <!--* Radio Btns -->
+                  <div class="Radio_Btn_Parent_Div">
+                    <div>
+                      <label class="form-check-label" for="inlineRadio1"
+                        ><strong>Monday</strong>
+                      </label>
+                    </div>
+                    <div class="Radio_Btn_Container">
+                      <div class="Radio_Btn_Child_Container">
+                        <input
+                          [(ngModel)]="RadioValueMonday"
+                          type="radio"
+                          name="monday"
+                          id="inlineRadio1"
+                          value="{{ 1 }}"
+                        />
+                        <label
+                          class="form-check-label"
+                          style="color: green"
+                          for="inlineRadio2"
+                          >Available
+                        </label>
+                      </div>
+                      <div class="Radio_Btn_Child_Container">
+                        <input
+                          [(ngModel)]="RadioValueMonday"
+                          type="radio"
+                          name="monday"
+                          id="inlineRadio2"
+                          value="{{ 0 }}"
+                        />
+                        <label
+                          class="form-check-label"
+                          style="color: red"
+                          for="inlineRadio2"
+                          >Unavailable
+                        </label>
+                      </div>
+                    </div>
+                    <label class="form-check-label" for="inlineRadio2"
+                      >{{ RadioValueMonday }}
+                    </label>
+                  </div>
+
+                  <!--* Radio Btns -->
+                  <div class="Radio_Btn_Parent_Div">
+                    <div>
+                      <label class="form-check-label" for="inlineRadio1"
+                        ><strong>Tuesday</strong>
+                      </label>
+                    </div>
+                    <div class="Radio_Btn_Container">
+                      <div class="Radio_Btn_Child_Container">
+                        <input
+                          [(ngModel)]="RadioValueTuesday"
+                          type="radio"
+                          name="tuesday"
+                          id="inlineRadio1"
+                          value="{{ 1 }}"
+                        />
+                        <label
+                          class="form-check-label"
+                          style="color: green"
+                          for="inlineRadio2"
+                          >Available
+                        </label>
+                      </div>
+                      <div class="Radio_Btn_Child_Container">
+                        <input
+                          [(ngModel)]="RadioValueTuesday"
+                          type="radio"
+                          name="tuesday"
+                          id="inlineRadio2"
+                          value="{{ 0 }}"
+                        />
+                        <label
+                          class="form-check-label"
+                          style="color: red"
+                          for="inlineRadio2"
+                          >Unavailable
+                        </label>
+                      </div>
+                    </div>
+                    <label class="form-check-label" for="inlineRadio2"
+                      >{{ RadioValueTuesday }}
+                    </label>
+                  </div>
+
+                  <!--* Radio Btns -->
+                  <div class="Radio_Btn_Parent_Div">
+                    <div>
+                      <label class="form-check-label" for="inlineRadio1"
+                        ><strong>Wednesday</strong>
+                      </label>
+                    </div>
+                    <div class="Radio_Btn_Container">
+                      <div class="Radio_Btn_Child_Container">
+                        <input
+                          [(ngModel)]="RadioValueWednesday"
+                          type="radio"
+                          name="wednesday"
+                          id="inlineRadio1"
+                          value="{{ 1 }}"
+                        />
+                        <label
+                          class="form-check-label"
+                          style="color: green"
+                          for="inlineRadio2"
+                          >Available
+                        </label>
+                      </div>
+                      <div class="Radio_Btn_Child_Container">
+                        <input
+                          [(ngModel)]="RadioValueWednesday"
+                          type="radio"
+                          name="wednesday"
+                          id="inlineRadio2"
+                          value="{{ 0 }}"
+                        />
+                        <label
+                          class="form-check-label"
+                          style="color: red"
+                          for="inlineRadio2"
+                          >Unavailable
+                        </label>
+                      </div>
+                    </div>
+                    <label class="form-check-label" for="inlineRadio2"
+                      >{{ RadioValueWednesday }}
+                    </label>
+                  </div>
+
+                  <!--* Radio Btns -->
+                  <div class="Radio_Btn_Parent_Div">
+                    <div>
+                      <label class="form-check-label" for="inlineRadio1"
+                        ><strong>Thursday</strong>
+                      </label>
+                    </div>
+                    <div class="Radio_Btn_Container">
+                      <div class="Radio_Btn_Child_Container">
+                        <input
+                          [(ngModel)]="RadioValueThursday"
+                          type="radio"
+                          name="thursday"
+                          id="inlineRadio1"
+                          value="{{ 1 }}"
+                        />
+                        <label
+                          class="form-check-label"
+                          style="color: green"
+                          for="inlineRadio2"
+                          >Available
+                        </label>
+                      </div>
+                      <div class="Radio_Btn_Child_Container">
+                        <input
+                          [(ngModel)]="RadioValueThursday"
+                          type="radio"
+                          name="thursday"
+                          id="inlineRadio2"
+                          value="{{ 0 }}"
+                        />
+                        <label
+                          class="form-check-label"
+                          style="color: red"
+                          for="inlineRadio2"
+                          >Unavailable
+                        </label>
+                      </div>
+                    </div>
+                    <label class="form-check-label" for="inlineRadio2"
+                      >{{ RadioValueThursday }}
+                    </label>
+                  </div>
+
+                  <!--* Radio Btns -->
+                  <div class="Radio_Btn_Parent_Div">
+                    <div>
+                      <label class="form-check-label" for="inlineRadio1"
+                        ><strong>Friday</strong>
+                      </label>
+                    </div>
+                    <div class="Radio_Btn_Container">
+                      <div class="Radio_Btn_Child_Container">
+                        <input
+                          [(ngModel)]="RadioValueFriday"
+                          type="radio"
+                          name="friday"
+                          id="inlineRadio1"
+                          value="{{ 1 }}"
+                        />
+                        <label
+                          class="form-check-label"
+                          style="color: green"
+                          for="inlineRadio2"
+                          >Available
+                        </label>
+                      </div>
+                      <div class="Radio_Btn_Child_Container">
+                        <input
+                          [(ngModel)]="RadioValueFriday"
+                          type="radio"
+                          name="friday"
+                          id="inlineRadio2"
+                          value="{{ 0 }}"
+                        />
+                        <label
+                          class="form-check-label"
+                          style="color: red"
+                          for="inlineRadio2"
+                          >Unavailable
+                        </label>
+                      </div>
+                    </div>
+                    <label class="form-check-label" for="inlineRadio2"
+                      >{{ RadioValueFriday }}
+                    </label>
+                  </div>
+
+                  <!--* Radio Btns -->
+                  <div class="Radio_Btn_Parent_Div">
+                    <div>
+                      <label class="form-check-label" for="inlineRadio1"
+                        ><strong>Saturday</strong>
+                      </label>
+                    </div>
+                    <div class="Radio_Btn_Container">
+                      <div class="Radio_Btn_Child_Container">
+                        <input
+                          [(ngModel)]="RadioValueSaturday"
+                          type="radio"
+                          name="saturday"
+                          id="inlineRadio1"
+                          value="{{ 1 }}"
+                        />
+                        <label
+                          class="form-check-label"
+                          style="color: green"
+                          for="inlineRadio2"
+                          >Available
+                        </label>
+                      </div>
+                      <div class="Radio_Btn_Child_Container">
+                        <input
+                          [(ngModel)]="RadioValueSaturday"
+                          type="radio"
+                          name="saturday"
+                          id="inlineRadio2"
+                          value="{{ 0 }}"
+                        />
+                        <label
+                          class="form-check-label"
+                          style="color: red"
+                          for="inlineRadio2"
+                          >Unavailable
+                        </label>
+                      </div>
+                    </div>
+                    <label class="form-check-label" for="inlineRadio2"
+                      >{{ RadioValueSaturday }}
+                    </label>
+                  </div>
+                  <div class="Submit_Btn_Div">
+                    <button
+                      type="button"
+                      (click)="
+                        UpdateAvailability(
+                          DoctorProfileData.availability[0]._id
+                        )
+                      "
+                      class="btn btn-success"
+                    >
+                      Update
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-4 mb-md-0">
+              <div class="card-body">
+                <p class="mb-4">
+                  <span class="text-primary font-italic me-1">assigment</span>
+                  Project Status
+                </p>
+                <p class="mb-1" style="font-size: 0.77rem">Web Design</p>
+                <div class="progress rounded" style="height: 5px">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 80%"
+                    aria-valuenow="80"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: 0.77rem">
+                  Website Markup
+                </p>
+                <div class="progress rounded" style="height: 5px">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 72%"
+                    aria-valuenow="72"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: 0.77rem">One Page</p>
+                <div class="progress rounded" style="height: 5px">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 89%"
+                    aria-valuenow="89"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: 0.77rem">
+                  Mobile Template
+                </p>
+                <div class="progress rounded" style="height: 5px">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 55%"
+                    aria-valuenow="55"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: 0.77rem">Backend API</p>
+                <div class="progress rounded mb-2" style="height: 5px">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 66%"
+                    aria-valuenow="66"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-4 mb-md-0">
+              <div class="card-body">
+                <p class="mb-4">
+                  <span class="text-primary font-italic me-1">assigment</span>
+                  Project Status
+                </p>
+                <p class="mb-1" style="font-size: 0.77rem">Web Design</p>
+                <div class="progress rounded" style="height: 5px">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 80%"
+                    aria-valuenow="80"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: 0.77rem">
+                  Website Markup
+                </p>
+                <div class="progress rounded" style="height: 5px">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 72%"
+                    aria-valuenow="72"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: 0.77rem">One Page</p>
+                <div class="progress rounded" style="height: 5px">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 89%"
+                    aria-valuenow="89"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: 0.77rem">
+                  Mobile Template
+                </p>
+                <div class="progress rounded" style="height: 5px">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 55%"
+                    aria-valuenow="55"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: 0.77rem">Backend API</p>
+                <div class="progress rounded mb-2" style="height: 5px">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 66%"
+                    aria-valuenow="66"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

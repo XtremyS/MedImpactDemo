@@ -1,0 +1,20 @@
+.Alert_Div_Parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .Alert_Text_Parent_Div {
+    .Alert_Text {
+      color: black;
+    }
+  }
+  .Alert_Icon_Parent_Div {
+    .Alert_Icon {
+      color: red;
+      margin: 0 5px;
+    }
+  }
+}
+
+.LoginSuccess {
+  color: green !important;
+}

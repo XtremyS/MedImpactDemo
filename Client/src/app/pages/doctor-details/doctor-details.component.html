@@ -1,0 +1,2657 @@
+<!-- Main Start -->
+<main id="dc-main" class="dc-main dc-haslayout">
+  <!-- About Welcome Start -->
+  <!-- About Welcome Start -->
+  <div class="dc-haslayout dc-main-section">
+    <!-- User Listing Start-->
+    <div class="container">
+      <div class="row">
+        <div id="dc-twocolumns" class="dc-twocolumns dc-haslayout">
+          <div class="float-left">
+            <div class="dc-docsingle-header">
+              <figure class="dc-docsingleimg">
+                <img
+                  src="././../../../assets/images/doc-imgs/doc.jpg"
+                  alt="img description"
+                />
+                <ng-container *ngIf="DoctorDetails.isVerified">
+                  <figcaption>
+                    <span class="dc-featuredtag"
+                      ><i class="fa fa-bolt"></i
+                    ></span>
+                  </figcaption>
+                </ng-container>
+              </figure>
+              <div class="dc-docsingle-content">
+                <div class="dc-title">
+                  <h2>
+                    <a href="javascript:void(0);"
+                      >Dr. {{ DoctorDetails.full_name }}
+                    </a>
+                    <ng-container *ngIf="DoctorDetails.isVerified">
+                      <i class="fa fa-check-circle dc-awardtooltip"
+                        ><em>Medical Registration Verified</em></i
+                      >
+                    </ng-container>
+                    <ng-container *ngIf="DoctorDetails.SuperExperienced">
+                      <i class="fa fa-award dc-awardtooltip"
+                        ><em>Medical Registration Verified</em></i
+                      >
+                    </ng-container>
+                  </h2>
+                  <ul class="dc-docinfo">
+                    <li>
+                      <em>
+                        <span class="ti-medall"></span> Education
+                        <span class="Doc_Speciality_Text">
+                          {{ DoctorDetails.education }}
+                        </span>
+                      </em>
+                    </li>
+                    <li>
+                      <em
+                        ><span class="ti-pulse"></span> Specialist
+                        <span class="Doc_Speciality_Text">
+                          {{ DoctorDetails.specialty }}
+                        </span>
+                      </em>
+                    </li>
+                    <!--* For Feedback  -->
+                    <!-- <li>
+                      <span class="dc-stars"><span></span></span
+                      ><em>2100 Feedback</em>
+                    </li> -->
+                  </ul>
+                  <div class="dc-doclocation">
+                    <span
+                      ><i class="ti-location-pin"></i>
+                      {{ DoctorDetails.state }},
+                      {{ DoctorDetails.country }}</span
+                    >
+                    <span
+                      ><i class="ti-location-arrow"></i>
+                      {{ DoctorDetails.clinic_address }}
+                    </span>
+
+                    <!--* Working Weeks Div  -->
+                    <span
+                      ><i class="ti-calendar"></i>
+                      <!--* Status For Sunday  -->
+                      <ng-container
+                        *ngFor="let data of DoctorDetails.availability"
+                      >
+                        <span
+                          class="Weeks_Span"
+                          [ngStyle]="{
+                            color:
+                              data.week_day1_status === 1
+                                ? 'var(--tertiary-color)'
+                                : 'red'
+                          }"
+                          >{{ data.week_day1 }}</span
+                        >,
+                      </ng-container>
+
+                      <!--* Status For Monday  -->
+                      <ng-container
+                        *ngFor="let data of DoctorDetails.availability"
+                      >
+                        <span
+                          class="Weeks_Span"
+                          [ngStyle]="{
+                            color:
+                              data.week_day2_status === 1
+                                ? 'var(--tertiary-color)'
+                                : 'red'
+                          }"
+                          >{{ data.week_day2 }}</span
+                        >,
+                      </ng-container>
+
+                      <!--* Status For Tuesday  -->
+                      <ng-container
+                        *ngFor="let data of DoctorDetails.availability"
+                      >
+                        <span
+                          class="Weeks_Span"
+                          [ngStyle]="{
+                            color:
+                              data.week_day3_status === 1
+                                ? 'var(--tertiary-color)'
+                                : 'red'
+                          }"
+                          >{{ data.week_day3 }}</span
+                        >,
+                      </ng-container>
+
+                      <!--* Status For Wednesday  -->
+                      <ng-container
+                        *ngFor="let data of DoctorDetails.availability"
+                      >
+                        <span
+                          class="Weeks_Span"
+                          [ngStyle]="{
+                            color:
+                              data.week_day4_status === 1
+                                ? 'var(--tertiary-color)'
+                                : 'red'
+                          }"
+                          >{{ data.week_day4 }}</span
+                        >,
+                      </ng-container>
+
+                      <!--* Status For Thursday  -->
+                      <ng-container
+                        *ngFor="let data of DoctorDetails.availability"
+                      >
+                        <span
+                          class="Weeks_Span"
+                          [ngStyle]="{
+                            color:
+                              data.week_day5_status === 1
+                                ? 'var(--tertiary-color)'
+                                : 'red'
+                          }"
+                          >{{ data.week_day5 }}</span
+                        >,
+                      </ng-container>
+
+                      <!--* Status For Friday  -->
+                      <ng-container
+                        *ngFor="let data of DoctorDetails.availability"
+                      >
+                        <span
+                          class="Weeks_Span"
+                          [ngStyle]="{
+                            color:
+                              data.week_day6_status === 1
+                                ? 'var(--tertiary-color)'
+                                : 'red'
+                          }"
+                          >{{ data.week_day6 }}</span
+                        >,
+                      </ng-container>
+
+                      <!--* Status For Saturday  -->
+                      <ng-container
+                        *ngFor="let data of DoctorDetails.availability"
+                      >
+                        <span
+                          class="Weeks_Span"
+                          [ngStyle]="{
+                            color:
+                              data.week_day7_status === 1
+                                ? 'var(--tertiary-color)'
+                                : 'red'
+                          }"
+                          >{{ data.week_day7 }}</span
+                        >
+                      </ng-container>
+                    </span>
+                  </div>
+                  <a href="javascript:void(0);" class="dc-like"
+                    ><i class="fa fa-heart"></i
+                  ></a>
+                </div>
+                <div class="dc-description">
+                  <p>
+                    Amet consectetur adipisicing eliteiuim sete eiu tempor
+                    incidit utoreas etnalom dolore maena aliqua udiminimate
+                    veniam quis norud exercita.
+                  </p>
+                </div>
+                <div class="dc-btnarea">
+                  <a
+                    href="javascript:void(0);"
+                    class="dc-btn"
+                    data-toggle="modal"
+                    data-target="#feedbackmodal"
+                    >Add Feedback</a
+                  >
+                  <a
+                    (click)="BookAppointment(DoctorDetails)"
+                    href="javascript:void(0);"
+                    class="dc-btn"
+                    data-toggle="modal"
+                    data-target="#appointment"
+                    >Book Now</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="dc-docsingle-holder">
+              <ul class="dc-navdocsingletab nav navbar-nav">
+                <li class="nav-item">
+                  <a
+                    class="active"
+                    id="locations-tab"
+                    data-toggle="tab"
+                    href="#locations"
+                    >Available Locations</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a id="userdetails-tab" data-toggle="tab" href="#userdetails"
+                    >User Details</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    id="consultation-tab"
+                    data-toggle="tab"
+                    href="#consultation"
+                    >Online Consultation</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a id="feedback-tab" data-toggle="tab" href="#feedback"
+                    >Feedback</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a id="articles-tab" data-toggle="tab" href="#articles"
+                    >Articles</a
+                  >
+                </li>
+              </ul>
+              <div class="tab-content dc-haslayout">
+                <div
+                  class="dc-contentdoctab dc-location-holder tab-pane fade active show"
+                  id="locations"
+                >
+                  <div class="dc-searchresult-holder">
+                    <div class="dc-searchresult-head">
+                      <div class="dc-title">
+                        <h4>“Dr. Tenisha” Locations</h4>
+                      </div>
+                      <div class="dc-rightarea">
+                        <div class="dc-select">
+                          <select>
+                            <option value="Sort By:">Sort By:</option>
+                            <option value="Sort By:">
+                              Last created on top
+                            </option>
+                            <option value="Sort By:">
+                              Last modified on top
+                            </option>
+                            <option value="Sort By:">
+                              Alphabetically (A-Z)
+                            </option>
+                            <option value="Sort By:">
+                              Alphabetically (Z-A)
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="dc-searchresult-grid dc-searchresult-list dc-searchvlistvtwo"
+                    >
+                      <div class="dc-docpostholder">
+                        <div class="dc-docpostcontent">
+                          <div class="dc-searchvtwo">
+                            <figure class="dc-docpostimg">
+                              <img src="" alt="img description" />
+                              <figcaption>
+                                <span class="dc-featuredtag"
+                                  ><i class="fa fa-bolt"></i
+                                ></span>
+                              </figcaption>
+                            </figure>
+                            <div class="dc-title">
+                              <a href="javascript:void(0)" class="dc-docstatus"
+                                >Private Clinic</a
+                              >
+                              <h3>
+                                <a href="javascript:void(0);"
+                                  >Smiles Multispeciality Clinic
+                                </a>
+                                <i class="fa fa-award dc-awardtooltip"
+                                  ><em>Medical Registration Verified</em></i
+                                >
+                                <i class="fa fa-check-circle dc-awardtooltip"
+                                  ><em>Medical Registration Verified</em></i
+                                >
+                              </h3>
+                              <ul class="dc-docinfo">
+                                <li>
+                                  <em>MBBS, MCPS, MSc (Immunology)</em>
+                                </li>
+                                <li>
+                                  <span class="dc-stars"><span></span></span
+                                  ><em>2100 Feedback</em>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="dc-tags">
+                              <ul>
+                                <li>
+                                  <a href="javascript:void(0);"
+                                    >Artificial Teeth</a
+                                  >
+                                </li>
+                                <li>
+                                  <a href="javascript:void(0);"
+                                    >Conservative Dentistry</a
+                                  >
+                                </li>
+                                <li>
+                                  <a href="javascript:void(0);"
+                                    >Crowns Fixing</a
+                                  >
+                                </li>
+                                <li>
+                                  <a href="javascript:void(0);">Endosurgery</a>
+                                </li>
+                                <li>
+                                  <a href="javascript:void(0);"
+                                    >Fixed Partial Denture (FPD)</a
+                                  >
+                                </li>
+                                <li>
+                                  <a
+                                    href="javascript:void(0);"
+                                    class="dc-tagviewall"
+                                    >View all</a
+                                  >
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="dc-doclocation dc-doclocationvtwo">
+                            <span
+                              ><i class="ti-direction-alt"></i> Manchester,
+                              UK</span
+                            >
+                            <span
+                              ><i class="ti-calendar"></i> Mo, Tu,
+                              <em class="dc-dayon">We</em>, Th, Fr, Sa</span
+                            >
+                            <span><i class="ti-thumb-up"></i> 345 Votes</span>
+                            <span
+                              ><i class="ti-wallet"></i> Starting From $50</span
+                            >
+                            <span
+                              ><i class="ti-calendar"></i>
+                              <em class="dc-available"
+                                >Available Today</em
+                              ></span
+                            >
+                            <div class="dc-btnarea">
+                              <a href="javascript:void(0);" class="dc-btn"
+                                >Book Now</a
+                              >
+                              <a
+                                href="javascript:void(0);"
+                                class="dc-like dc-liked"
+                                ><i class="fa fa-heart"></i
+                              ></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="dc-docpostholder">
+                        <div class="dc-docpostcontent">
+                          <div class="dc-searchvtwo">
+                            <figure class="dc-docpostimg">
+                              <img src="" alt="img description" />
+                              <figcaption>
+                                <span class="dc-featuredtag"
+                                  ><i class="fa fa-bolt"></i
+                                ></span>
+                              </figcaption>
+                            </figure>
+                            <div class="dc-title">
+                              <a href="javascript:void(0)" class="dc-docstatus"
+                                >Private Clinic</a
+                              >
+                              <h3>
+                                <a href="javascript:void(0);"
+                                  >iSmile Dental Care
+                                </a>
+                                <i class="fa fa-award dc-awardtooltip"
+                                  ><em>Medical Registration Verified</em></i
+                                >
+                                <i class="fa fa-check-circle dc-awardtooltip"
+                                  ><em>Medical Registration Verified</em></i
+                                >
+                              </h3>
+                              <ul class="dc-docinfo">
+                                <li>
+                                  <em>PhD (Allergy), Dip Allergy</em>
+                                </li>
+                                <li>
+                                  <span class="dc-stars"><span></span></span
+                                  ><em>2100 Feedback</em>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="dc-tags">
+                              <ul>
+                                <li>
+                                  <a href="javascript:void(0);"
+                                    >Artificial Teeth</a
+                                  >
+                                </li>
+                                <li>
+                                  <a href="javascript:void(0);"
+                                    >Conservative Dentistry</a
+                                  >
+                                </li>
+                                <li>
+                                  <a href="javascript:void(0);"
+                                    >Crowns Fixing</a
+                                  >
+                                </li>
+                                <li>
+                                  <a href="javascript:void(0);">Endosurgery</a>
+                                </li>
+                                <li>
+                                  <a href="javascript:void(0);"
+                                    >Fixed Partial Denture (FPD)</a
+                                  >
+                                </li>
+                                <li>
+                                  <a
+                                    href="javascript:void(0);"
+                                    class="dc-tagviewall"
+                                    >View all</a
+                                  >
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="dc-doclocation dc-doclocationvtwo">
+                            <span
+                              ><i class="ti-direction-alt"></i> Manchester,
+                              UK</span
+                            >
+                            <span
+                              ><i class="ti-calendar"></i> Mo, Tu,
+                              <em class="dc-dayon">We</em>, Th, Fr, Sa</span
+                            >
+                            <span><i class="ti-thumb-up"></i> 345 Votes</span>
+                            <span
+                              ><i class="ti-wallet"></i> Starting From $50</span
+                            >
+                            <span
+                              ><i class="ti-calendar"></i>
+                              <em class="dc-available"
+                                >Available Today</em
+                              ></span
+                            >
+                            <div class="dc-btnarea">
+                              <a href="javascript:void(0);" class="dc-btn"
+                                >Book Now</a
+                              >
+                              <a
+                                href="javascript:void(0);"
+                                class="dc-like dc-liked"
+                                ><i class="fa fa-heart"></i
+                              ></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="dc-docpostholder">
+                        <div class="dc-docpostcontent">
+                          <div class="dc-searchvtwo">
+                            <figure class="dc-docpostimg">
+                              <img src="" alt="img description" />
+                              <figcaption>
+                                <span class="dc-featuredtag"
+                                  ><i class="fa fa-bolt"></i
+                                ></span>
+                              </figcaption>
+                            </figure>
+                            <div class="dc-title">
+                              <a href="javascript:void(0)" class="dc-docstatus"
+                                >Hospital</a
+                              >
+                              <h3>
+                                <a href="javascript:void(0);"
+                                  >Your Dental Life Hospital
+                                </a>
+                                <i class="fa fa-award dc-awardtooltip"
+                                  ><em>Medical Registration Verified</em></i
+                                >
+                                <i class="fa fa-check-circle dc-awardtooltip"
+                                  ><em>Medical Registration Verified</em></i
+                                >
+                              </h3>
+                              <ul class="dc-docinfo">
+                                <li>
+                                  <em>Clin Immn (Euro), FCPP</em>
+                                </li>
+                                <li>
+                                  <span class="dc-stars"><span></span></span
+                                  ><em>2100 Feedback</em>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="dc-tags">
+                              <ul>
+                                <li>
+                                  <a href="javascript:void(0);"
+                                    >Artificial Teeth</a
+                                  >
+                                </li>
+                                <li>
+                                  <a href="javascript:void(0);"
+                                    >Conservative Dentistry</a
+                                  >
+                                </li>
+                                <li>
+                                  <a href="javascript:void(0);"
+                                    >Crowns Fixing</a
+                                  >
+                                </li>
+                                <li>
+                                  <a href="javascript:void(0);">Endosurgery</a>
+                                </li>
+                                <li>
+                                  <a href="javascript:void(0);"
+                                    >Fixed Partial Denture (FPD)</a
+                                  >
+                                </li>
+                                <li>
+                                  <a
+                                    href="javascript:void(0);"
+                                    class="dc-tagviewall"
+                                    >View all</a
+                                  >
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="dc-doclocation dc-doclocationvtwo">
+                            <span
+                              ><i class="ti-direction-alt"></i> Manchester,
+                              UK</span
+                            >
+                            <span
+                              ><i class="ti-calendar"></i> Mo, Tu,
+                              <em class="dc-dayon">We</em>, Th, Fr, Sa</span
+                            >
+                            <span><i class="ti-thumb-up"></i> 345 Votes</span>
+                            <span
+                              ><i class="ti-wallet"></i> Starting From $50</span
+                            >
+                            <span
+                              ><i class="ti-calendar"></i>
+                              <em class="dc-available"
+                                >Available Today</em
+                              ></span
+                            >
+                            <div class="dc-btnarea">
+                              <a href="javascript:void(0);" class="dc-btn"
+                                >Book Now</a
+                              >
+                              <a
+                                href="javascript:void(0);"
+                                class="dc-like dc-liked"
+                                ><i class="fa fa-heart"></i
+                              ></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="dc-docpostholder">
+                        <div class="dc-docpostcontent">
+                          <div class="dc-searchvtwo">
+                            <figure class="dc-docpostimg">
+                              <img src="" alt="img description" />
+                              <figcaption>
+                                <span class="dc-featuredtag"
+                                  ><i class="fa fa-bolt"></i
+                                ></span>
+                              </figcaption>
+                            </figure>
+                            <div class="dc-title">
+                              <a href="javascript:void(0)" class="dc-docstatus"
+                                >Private Clinic</a
+                              >
+                              <h3>
+                                <a href="javascript:void(0);"
+                                  >Docroc Smile &amp; Dental Care
+                                </a>
+                                <i class="fa fa-award dc-awardtooltip"
+                                  ><em>Medical Registration Verified</em></i
+                                >
+                                <i class="fa fa-check-circle dc-awardtooltip"
+                                  ><em>Medical Registration Verified</em></i
+                                >
+                              </h3>
+                              <ul class="dc-docinfo">
+                                <li>
+                                  <em>FAAAAI (USA), PGT Allergy (UK)</em>
+                                </li>
+                                <li>
+                                  <span class="dc-stars"><span></span></span
+                                  ><em>2100 Feedback</em>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="dc-tags">
+                              <ul>
+                                <li>
+                                  <a href="javascript:void(0);"
+                                    >Artificial Teeth</a
+                                  >
+                                </li>
+                                <li>
+                                  <a href="javascript:void(0);"
+                                    >Conservative Dentistry</a
+                                  >
+                                </li>
+                                <li>
+                                  <a href="javascript:void(0);"
+                                    >Crowns Fixing</a
+                                  >
+                                </li>
+                                <li>
+                                  <a href="javascript:void(0);">Endosurgery</a>
+                                </li>
+                                <li>
+                                  <a href="javascript:void(0);"
+                                    >Fixed Partial Denture (FPD)</a
+                                  >
+                                </li>
+                                <li>
+                                  <a
+                                    href="javascript:void(0);"
+                                    class="dc-tagviewall"
+                                    >View all</a
+                                  >
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="dc-doclocation dc-doclocationvtwo">
+                            <span
+                              ><i class="ti-direction-alt"></i> Manchester,
+                              UK</span
+                            >
+                            <span
+                              ><i class="ti-calendar"></i> Mo, Tu,
+                              <em class="dc-dayon">We</em>, Th, Fr, Sa</span
+                            >
+                            <span><i class="ti-thumb-up"></i> 345 Votes</span>
+                            <span
+                              ><i class="ti-wallet"></i> Starting From $50</span
+                            >
+                            <span
+                              ><i class="ti-calendar"></i>
+                              <em class="dc-available"
+                                >Available Today</em
+                              ></span
+                            >
+                            <div class="dc-btnarea">
+                              <a href="javascript:void(0);" class="dc-btn"
+                                >Book Now</a
+                              >
+                              <a
+                                href="javascript:void(0);"
+                                class="dc-like dc-liked"
+                                ><i class="fa fa-heart"></i
+                              ></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <nav class="dc-pagination">
+                        <ul>
+                          <li class="dc-prevpage">
+                            <a href="javascrip:void(0);"
+                              ><i class="lnr lnr-chevron-left"></i
+                            ></a>
+                          </li>
+                          <li><a href="javascrip:void(0);">1</a></li>
+                          <li><a href="javascrip:void(0);">2</a></li>
+                          <li><a href="javascrip:void(0);">3</a></li>
+                          <li><a href="javascrip:void(0);">4</a></li>
+                          <li><a href="javascrip:void(0);">...</a></li>
+                          <li><a href="javascrip:void(0);">50</a></li>
+                          <li class="dc-nextpage">
+                            <a href="javascrip:void(0);"
+                              ><i class="lnr lnr-chevron-right"></i
+                            ></a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>
+                  <div class="dc-shareprofile">
+                    <ul class="dc-simplesocialicons dc-socialiconsborder">
+                      <li class="dc-sharecontent">
+                        <span>Share Profile:</span>
+                      </li>
+                      <li class="dc-facebook">
+                        <a href="javascript:void(0);"
+                          ><i class="fab fa-facebook-f"></i
+                        ></a>
+                      </li>
+                      <li class="dc-twitter">
+                        <a href="javascript:void(0);"
+                          ><i class="fab fa-twitter"></i
+                        ></a>
+                      </li>
+                      <li class="dc-linkedin">
+                        <a href="javascript:void(0);"
+                          ><i class="fab fa-linkedin-in"></i
+                        ></a>
+                      </li>
+                      <li class="dc-instagram">
+                        <a href="javascript:void(0);"
+                          ><i class="fab fa-instagram"></i
+                        ></a>
+                      </li>
+                      <li class="dc-googleplus">
+                        <a href="javascript:void(0);"
+                          ><i class="fab fa-google-plus-g"></i
+                        ></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div
+                  class="dc-contentdoctab dc-userdetails-holder tab-pane"
+                  id="userdetails"
+                >
+                  <div class="dc-aboutdoc dc-aboutinfo">
+                    <div class="dc-infotitle">
+                      <h3>About “Dr. Tenisha”</h3>
+                    </div>
+                    <div class="dc-description">
+                      <p>
+                        Consectetur adipisicing eliteiuim sete eiu tempor
+                        incidit utoreas etnalom dolore maena aliquae udiminimate
+                        veniam quis norud exercita ullamco laboris nisi aliquip
+                        commodo consequat Duis aute irure dolor inem reprederit
+                        inoluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur eexcepteur occaecat cupidatat non proident sunt
+                        in culpa qui officia deserunt mollit anim id est laborum
+                        sed ut perspiciatis unde omnis.
+                      </p>
+                      <p>
+                        Este natus error sit voluptatem accusantium doloremque
+                        laudantium, totam rem aperiam, eaque ipsa quae ab illo
+                        inventore veritatis et quasi architecto beatae vitae
+                        dicta sunt explicabo. Nemo enim ipsam voluptatem quia
+                        voluptas sit aspernatur aut odit aut fugit sed quia
+                        consequuntur.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="dc-services-holder dc-aboutinfo">
+                    <div class="dc-infotitle">
+                      <h3>Offered Services</h3>
+                    </div>
+                    <div
+                      id="dc-accordion"
+                      class="dc-accordion"
+                      role="tablist"
+                      aria-multiselectable="true"
+                    >
+                      <div class="dc-panel">
+                        <div class="dc-paneltitle">
+                          <figure class="dc-titleicon">
+                            <img
+                              src="images/icon-imgs/img-02.png"
+                              alt="img description"
+                            />
+                          </figure>
+                          <span>Dentistry<em>1507 Services</em></span>
+                        </div>
+                        <div class="dc-panelcontent">
+                          <div
+                            id="dc-childaccordion"
+                            class="dc-childaccordion"
+                            role="tablist"
+                            aria-multiselectable="true"
+                          >
+                            <div class="dc-subpanel">
+                              <div class="dc-subpaneltitle">
+                                <span>Anatomy scan<em>$50</em></span>
+                              </div>
+                              <div class="dc-subpanelcontent">
+                                <div class="dc-description">
+                                  <p>
+                                    Consectetur adipisicing elit sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna
+                                    aliqua enim adinim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut<a
+                                      href="javascript:void(0);"
+                                    >
+                                      aliquip ex ea commodo</a
+                                    >
+                                    consequat. Duis aute irureti dolor in
+                                    reprehenderit in voluptate velit esse cillum
+                                    dolore.
+                                  </p>
+                                  <p>
+                                    Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt
+                                    mollit anim id est laborume Sed ut
+                                    perspiciatis unde omnis iste
+                                    <a href="javascript:void(0);"
+                                      >natus error</a
+                                    >
+                                    sit voluptatem accusantium doloremque.
+                                  </p>
+                                  <p>
+                                    Laudantium, totaman rem aperiam, eaque ipsa
+                                    quae ab illo inventore veritatis et quasi
+                                    architecto beatae vitae dicta sunt
+                                    explicabo. Nemo enim ipsam voluptatem quia
+                                    voluptas sit aspernatur aut odit aut fugit,
+                                    sed quiatei consequuntur magni dolores eos
+                                    qui ratione voluptatem
+                                    <a href="javascript:void(0);"
+                                      >sequi nesciunt.</a
+                                    >
+                                    Neque porro quisquam est, qui dem ipsum quia
+                                    dolor sit amet, consectetur, adipisci velit,
+                                    sed quia non numquam eius modi tempora
+                                    incidunt ut labore et dolore magnam aliquam
+                                    quaerat voluptatem.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="dc-subpanel">
+                              <div class="dc-subpaneltitle">
+                                <span
+                                  >Antenatal Checkup/Antenatal exercises<em
+                                    >$250</em
+                                  ></span
+                                >
+                              </div>
+                              <div class="dc-subpanelcontent">
+                                <div class="dc-description">
+                                  <p>
+                                    Consectetur adipisicing elit sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna
+                                    aliqua enim adinim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut<a
+                                      href="javascript:void(0);"
+                                    >
+                                      aliquip ex ea commodo</a
+                                    >
+                                    consequat. Duis aute irureti dolor in
+                                    reprehenderit in voluptate velit esse cillum
+                                    dolore.
+                                  </p>
+                                  <p>
+                                    Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt
+                                    mollit anim id est laborume Sed ut
+                                    perspiciatis unde omnis iste
+                                    <a href="javascript:void(0);"
+                                      >natus error</a
+                                    >
+                                    sit voluptatem accusantium doloremque.
+                                  </p>
+                                  <p>
+                                    Laudantium, totaman rem aperiam, eaque ipsa
+                                    quae ab illo inventore veritatis et quasi
+                                    architecto beatae vitae dicta sunt
+                                    explicabo. Nemo enim ipsam voluptatem quia
+                                    voluptas sit aspernatur aut odit aut fugit,
+                                    sed quiatei consequuntur magni dolores eos
+                                    qui ratione voluptatem
+                                    <a href="javascript:void(0);"
+                                      >sequi nesciunt.</a
+                                    >
+                                    Neque porro quisquam est, qui dem ipsum quia
+                                    dolor sit amet, consectetur, adipisci velit,
+                                    sed quia non numquam eius modi tempora
+                                    incidunt ut labore et dolore magnam aliquam
+                                    quaerat voluptatem.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="dc-subpanel">
+                              <div class="dc-subpaneltitle">
+                                <span>Antenatal Services<em>$20</em></span>
+                              </div>
+                              <div class="dc-subpanelcontent">
+                                <div class="dc-description">
+                                  <p>
+                                    Consectetur adipisicing elit sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna
+                                    aliqua enim adinim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut<a
+                                      href="javascript:void(0);"
+                                    >
+                                      aliquip ex ea commodo</a
+                                    >
+                                    consequat. Duis aute irureti dolor in
+                                    reprehenderit in voluptate velit esse cillum
+                                    dolore.
+                                  </p>
+                                  <p>
+                                    Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt
+                                    mollit anim id est laborume Sed ut
+                                    perspiciatis unde omnis iste
+                                    <a href="javascript:void(0);"
+                                      >natus error</a
+                                    >
+                                    sit voluptatem accusantium doloremque.
+                                  </p>
+                                  <p>
+                                    Laudantium, totaman rem aperiam, eaque ipsa
+                                    quae ab illo inventore veritatis et quasi
+                                    architecto beatae vitae dicta sunt
+                                    explicabo. Nemo enim ipsam voluptatem quia
+                                    voluptas sit aspernatur aut odit aut fugit,
+                                    sed quiatei consequuntur magni dolores eos
+                                    qui ratione voluptatem
+                                    <a href="javascript:void(0);"
+                                      >sequi nesciunt.</a
+                                    >
+                                    Neque porro quisquam est, qui dem ipsum quia
+                                    dolor sit amet, consectetur, adipisci velit,
+                                    sed quia non numquam eius modi tempora
+                                    incidunt ut labore et dolore magnam aliquam
+                                    quaerat voluptatem.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="dc-subpanel">
+                              <div class="dc-subpaneltitle">
+                                <span
+                                  >Caesarean Section/ C-Section<em
+                                    >$200</em
+                                  ></span
+                                >
+                              </div>
+                              <div class="dc-subpanelcontent">
+                                <div class="dc-description">
+                                  <p>
+                                    Consectetur adipisicing elit sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna
+                                    aliqua enim adinim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut<a
+                                      href="javascript:void(0);"
+                                    >
+                                      aliquip ex ea commodo</a
+                                    >
+                                    consequat. Duis aute irureti dolor in
+                                    reprehenderit in voluptate velit esse cillum
+                                    dolore.
+                                  </p>
+                                  <p>
+                                    Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt
+                                    mollit anim id est laborume Sed ut
+                                    perspiciatis unde omnis iste
+                                    <a href="javascript:void(0);"
+                                      >natus error</a
+                                    >
+                                    sit voluptatem accusantium doloremque.
+                                  </p>
+                                  <p>
+                                    Laudantium, totaman rem aperiam, eaque ipsa
+                                    quae ab illo inventore veritatis et quasi
+                                    architecto beatae vitae dicta sunt
+                                    explicabo. Nemo enim ipsam voluptatem quia
+                                    voluptas sit aspernatur aut odit aut fugit,
+                                    sed quiatei consequuntur magni dolores eos
+                                    qui ratione voluptatem
+                                    <a href="javascript:void(0);"
+                                      >sequi nesciunt.</a
+                                    >
+                                    Neque porro quisquam est, qui dem ipsum quia
+                                    dolor sit amet, consectetur, adipisci velit,
+                                    sed quia non numquam eius modi tempora
+                                    incidunt ut labore et dolore magnam aliquam
+                                    quaerat voluptatem.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="dc-panel">
+                        <div class="dc-paneltitle">
+                          <figure class="dc-titleicon">
+                            <img
+                              src="images/icon-imgs/img-03.png"
+                              alt="img description"
+                            />
+                          </figure>
+                          <span>Gynecology<em>08 Services</em></span>
+                        </div>
+                        <div class="dc-panelcontent">
+                          <div
+                            id="dc-childaccordion"
+                            class="dc-childaccordion"
+                            role="tablist"
+                            aria-multiselectable="true"
+                          >
+                            <div class="dc-subpanel">
+                              <div class="dc-subpaneltitle">
+                                <span>Anatomy scan<em>$50</em></span>
+                              </div>
+                              <div class="dc-subpanelcontent">
+                                <div class="dc-description">
+                                  <p>
+                                    Consectetur adipisicing elit sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna
+                                    aliqua enim adinim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut<a
+                                      href="javascript:void(0);"
+                                    >
+                                      aliquip ex ea commodo</a
+                                    >
+                                    consequat. Duis aute irureti dolor in
+                                    reprehenderit in voluptate velit esse cillum
+                                    dolore.
+                                  </p>
+                                  <p>
+                                    Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt
+                                    mollit anim id est laborume Sed ut
+                                    perspiciatis unde omnis iste
+                                    <a href="javascript:void(0);"
+                                      >natus error</a
+                                    >
+                                    sit voluptatem accusantium doloremque.
+                                  </p>
+                                  <p>
+                                    Laudantium, totaman rem aperiam, eaque ipsa
+                                    quae ab illo inventore veritatis et quasi
+                                    architecto beatae vitae dicta sunt
+                                    explicabo. Nemo enim ipsam voluptatem quia
+                                    voluptas sit aspernatur aut odit aut fugit,
+                                    sed quiatei consequuntur magni dolores eos
+                                    qui ratione voluptatem
+                                    <a href="javascript:void(0);"
+                                      >sequi nesciunt.</a
+                                    >
+                                    Neque porro quisquam est, qui dem ipsum quia
+                                    dolor sit amet, consectetur, adipisci velit,
+                                    sed quia non numquam eius modi tempora
+                                    incidunt ut labore et dolore magnam aliquam
+                                    quaerat voluptatem.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="dc-subpanel">
+                              <div class="dc-subpaneltitle">
+                                <span
+                                  >Antenatal Checkup/Antenatal exercises<em
+                                    >$250</em
+                                  ></span
+                                >
+                              </div>
+                              <div class="dc-subpanelcontent">
+                                <div class="dc-description">
+                                  <p>
+                                    Consectetur adipisicing elit sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna
+                                    aliqua enim adinim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut<a
+                                      href="javascript:void(0);"
+                                    >
+                                      aliquip ex ea commodo</a
+                                    >
+                                    consequat. Duis aute irureti dolor in
+                                    reprehenderit in voluptate velit esse cillum
+                                    dolore.
+                                  </p>
+                                  <p>
+                                    Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt
+                                    mollit anim id est laborume Sed ut
+                                    perspiciatis unde omnis iste
+                                    <a href="javascript:void(0);"
+                                      >natus error</a
+                                    >
+                                    sit voluptatem accusantium doloremque.
+                                  </p>
+                                  <p>
+                                    Laudantium, totaman rem aperiam, eaque ipsa
+                                    quae ab illo inventore veritatis et quasi
+                                    architecto beatae vitae dicta sunt
+                                    explicabo. Nemo enim ipsam voluptatem quia
+                                    voluptas sit aspernatur aut odit aut fugit,
+                                    sed quiatei consequuntur magni dolores eos
+                                    qui ratione voluptatem
+                                    <a href="javascript:void(0);"
+                                      >sequi nesciunt.</a
+                                    >
+                                    Neque porro quisquam est, qui dem ipsum quia
+                                    dolor sit amet, consectetur, adipisci velit,
+                                    sed quia non numquam eius modi tempora
+                                    incidunt ut labore et dolore magnam aliquam
+                                    quaerat voluptatem.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="dc-subpanel">
+                              <div class="dc-subpaneltitle">
+                                <span>Antenatal Services<em>$20</em></span>
+                              </div>
+                              <div class="dc-subpanelcontent">
+                                <div class="dc-description">
+                                  <p>
+                                    Consectetur adipisicing elit sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna
+                                    aliqua enim adinim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut<a
+                                      href="javascript:void(0);"
+                                    >
+                                      aliquip ex ea commodo</a
+                                    >
+                                    consequat. Duis aute irureti dolor in
+                                    reprehenderit in voluptate velit esse cillum
+                                    dolore.
+                                  </p>
+                                  <p>
+                                    Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt
+                                    mollit anim id est laborume Sed ut
+                                    perspiciatis unde omnis iste
+                                    <a href="javascript:void(0);"
+                                      >natus error</a
+                                    >
+                                    sit voluptatem accusantium doloremque.
+                                  </p>
+                                  <p>
+                                    Laudantium, totaman rem aperiam, eaque ipsa
+                                    quae ab illo inventore veritatis et quasi
+                                    architecto beatae vitae dicta sunt
+                                    explicabo. Nemo enim ipsam voluptatem quia
+                                    voluptas sit aspernatur aut odit aut fugit,
+                                    sed quiatei consequuntur magni dolores eos
+                                    qui ratione voluptatem
+                                    <a href="javascript:void(0);"
+                                      >sequi nesciunt.</a
+                                    >
+                                    Neque porro quisquam est, qui dem ipsum quia
+                                    dolor sit amet, consectetur, adipisci velit,
+                                    sed quia non numquam eius modi tempora
+                                    incidunt ut labore et dolore magnam aliquam
+                                    quaerat voluptatem.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="dc-subpanel">
+                              <div class="dc-subpaneltitle">
+                                <span
+                                  >Caesarean Section/ C-Section<em
+                                    >$200</em
+                                  ></span
+                                >
+                              </div>
+                              <div class="dc-subpanelcontent">
+                                <div class="dc-description">
+                                  <p>
+                                    Consectetur adipisicing elit sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna
+                                    aliqua enim adinim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut<a
+                                      href="javascript:void(0);"
+                                    >
+                                      aliquip ex ea commodo</a
+                                    >
+                                    consequat. Duis aute irureti dolor in
+                                    reprehenderit in voluptate velit esse cillum
+                                    dolore.
+                                  </p>
+                                  <p>
+                                    Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt
+                                    mollit anim id est laborume Sed ut
+                                    perspiciatis unde omnis iste
+                                    <a href="javascript:void(0);"
+                                      >natus error</a
+                                    >
+                                    sit voluptatem accusantium doloremque.
+                                  </p>
+                                  <p>
+                                    Laudantium, totaman rem aperiam, eaque ipsa
+                                    quae ab illo inventore veritatis et quasi
+                                    architecto beatae vitae dicta sunt
+                                    explicabo. Nemo enim ipsam voluptatem quia
+                                    voluptas sit aspernatur aut odit aut fugit,
+                                    sed quiatei consequuntur magni dolores eos
+                                    qui ratione voluptatem
+                                    <a href="javascript:void(0);"
+                                      >sequi nesciunt.</a
+                                    >
+                                    Neque porro quisquam est, qui dem ipsum quia
+                                    dolor sit amet, consectetur, adipisci velit,
+                                    sed quia non numquam eius modi tempora
+                                    incidunt ut labore et dolore magnam aliquam
+                                    quaerat voluptatem.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="dc-panel">
+                        <div class="dc-paneltitle">
+                          <figure class="dc-titleicon">
+                            <img
+                              src="images/icon-imgs/img-04.png"
+                              alt="img description"
+                            />
+                          </figure>
+                          <span>Radiology<em>1507 Services</em></span>
+                        </div>
+                        <div class="dc-panelcontent">
+                          <div
+                            id="dc-childaccordion"
+                            class="dc-childaccordion"
+                            role="tablist"
+                            aria-multiselectable="true"
+                          >
+                            <div class="dc-subpanel">
+                              <div class="dc-subpaneltitle">
+                                <span>Anatomy scan<em>$50</em></span>
+                              </div>
+                              <div class="dc-subpanelcontent">
+                                <div class="dc-description">
+                                  <p>
+                                    Consectetur adipisicing elit sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna
+                                    aliqua enim adinim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut<a
+                                      href="javascript:void(0);"
+                                    >
+                                      aliquip ex ea commodo</a
+                                    >
+                                    consequat. Duis aute irureti dolor in
+                                    reprehenderit in voluptate velit esse cillum
+                                    dolore.
+                                  </p>
+                                  <p>
+                                    Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt
+                                    mollit anim id est laborume Sed ut
+                                    perspiciatis unde omnis iste
+                                    <a href="javascript:void(0);"
+                                      >natus error</a
+                                    >
+                                    sit voluptatem accusantium doloremque.
+                                  </p>
+                                  <p>
+                                    Laudantium, totaman rem aperiam, eaque ipsa
+                                    quae ab illo inventore veritatis et quasi
+                                    architecto beatae vitae dicta sunt
+                                    explicabo. Nemo enim ipsam voluptatem quia
+                                    voluptas sit aspernatur aut odit aut fugit,
+                                    sed quiatei consequuntur magni dolores eos
+                                    qui ratione voluptatem
+                                    <a href="javascript:void(0);"
+                                      >sequi nesciunt.</a
+                                    >
+                                    Neque porro quisquam est, qui dem ipsum quia
+                                    dolor sit amet, consectetur, adipisci velit,
+                                    sed quia non numquam eius modi tempora
+                                    incidunt ut labore et dolore magnam aliquam
+                                    quaerat voluptatem.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="dc-subpanel">
+                              <div class="dc-subpaneltitle">
+                                <span
+                                  >Antenatal Checkup/Antenatal exercises<em
+                                    >$250</em
+                                  ></span
+                                >
+                              </div>
+                              <div class="dc-subpanelcontent">
+                                <div class="dc-description">
+                                  <p>
+                                    Consectetur adipisicing elit sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna
+                                    aliqua enim adinim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut<a
+                                      href="javascript:void(0);"
+                                    >
+                                      aliquip ex ea commodo</a
+                                    >
+                                    consequat. Duis aute irureti dolor in
+                                    reprehenderit in voluptate velit esse cillum
+                                    dolore.
+                                  </p>
+                                  <p>
+                                    Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt
+                                    mollit anim id est laborume Sed ut
+                                    perspiciatis unde omnis iste
+                                    <a href="javascript:void(0);"
+                                      >natus error</a
+                                    >
+                                    sit voluptatem accusantium doloremque.
+                                  </p>
+                                  <p>
+                                    Laudantium, totaman rem aperiam, eaque ipsa
+                                    quae ab illo inventore veritatis et quasi
+                                    architecto beatae vitae dicta sunt
+                                    explicabo. Nemo enim ipsam voluptatem quia
+                                    voluptas sit aspernatur aut odit aut fugit,
+                                    sed quiatei consequuntur magni dolores eos
+                                    qui ratione voluptatem
+                                    <a href="javascript:void(0);"
+                                      >sequi nesciunt.</a
+                                    >
+                                    Neque porro quisquam est, qui dem ipsum quia
+                                    dolor sit amet, consectetur, adipisci velit,
+                                    sed quia non numquam eius modi tempora
+                                    incidunt ut labore et dolore magnam aliquam
+                                    quaerat voluptatem.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="dc-subpanel">
+                              <div class="dc-subpaneltitle">
+                                <span>Antenatal Services<em>$20</em></span>
+                              </div>
+                              <div class="dc-subpanelcontent">
+                                <div class="dc-description">
+                                  <p>
+                                    Consectetur adipisicing elit sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna
+                                    aliqua enim adinim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut<a
+                                      href="javascript:void(0);"
+                                    >
+                                      aliquip ex ea commodo</a
+                                    >
+                                    consequat. Duis aute irureti dolor in
+                                    reprehenderit in voluptate velit esse cillum
+                                    dolore.
+                                  </p>
+                                  <p>
+                                    Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt
+                                    mollit anim id est laborume Sed ut
+                                    perspiciatis unde omnis iste
+                                    <a href="javascript:void(0);"
+                                      >natus error</a
+                                    >
+                                    sit voluptatem accusantium doloremque.
+                                  </p>
+                                  <p>
+                                    Laudantium, totaman rem aperiam, eaque ipsa
+                                    quae ab illo inventore veritatis et quasi
+                                    architecto beatae vitae dicta sunt
+                                    explicabo. Nemo enim ipsam voluptatem quia
+                                    voluptas sit aspernatur aut odit aut fugit,
+                                    sed quiatei consequuntur magni dolores eos
+                                    qui ratione voluptatem
+                                    <a href="javascript:void(0);"
+                                      >sequi nesciunt.</a
+                                    >
+                                    Neque porro quisquam est, qui dem ipsum quia
+                                    dolor sit amet, consectetur, adipisci velit,
+                                    sed quia non numquam eius modi tempora
+                                    incidunt ut labore et dolore magnam aliquam
+                                    quaerat voluptatem.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="dc-subpanel">
+                              <div class="dc-subpaneltitle">
+                                <span
+                                  >Caesarean Section/ C-Section<em
+                                    >$200</em
+                                  ></span
+                                >
+                              </div>
+                              <div class="dc-subpanelcontent">
+                                <div class="dc-description">
+                                  <p>
+                                    Consectetur adipisicing elit sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna
+                                    aliqua enim adinim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut<a
+                                      href="javascript:void(0);"
+                                    >
+                                      aliquip ex ea commodo</a
+                                    >
+                                    consequat. Duis aute irureti dolor in
+                                    reprehenderit in voluptate velit esse cillum
+                                    dolore.
+                                  </p>
+                                  <p>
+                                    Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt
+                                    mollit anim id est laborume Sed ut
+                                    perspiciatis unde omnis iste
+                                    <a href="javascript:void(0);"
+                                      >natus error</a
+                                    >
+                                    sit voluptatem accusantium doloremque.
+                                  </p>
+                                  <p>
+                                    Laudantium, totaman rem aperiam, eaque ipsa
+                                    quae ab illo inventore veritatis et quasi
+                                    architecto beatae vitae dicta sunt
+                                    explicabo. Nemo enim ipsam voluptatem quia
+                                    voluptas sit aspernatur aut odit aut fugit,
+                                    sed quiatei consequuntur magni dolores eos
+                                    qui ratione voluptatem
+                                    <a href="javascript:void(0);"
+                                      >sequi nesciunt.</a
+                                    >
+                                    Neque porro quisquam est, qui dem ipsum quia
+                                    dolor sit amet, consectetur, adipisci velit,
+                                    sed quia non numquam eius modi tempora
+                                    incidunt ut labore et dolore magnam aliquam
+                                    quaerat voluptatem.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="dc-experiencedoc dc-aboutinfo">
+                    <div class="dc-infotitle">
+                      <h3>Experience</h3>
+                    </div>
+                    <ul class="dc-expandedu">
+                      <li>
+                        <span
+                          >General Dentistry <em>( 2018 - Present )</em></span
+                        ><em>Wide Smile Dental Clinic</em>
+                      </li>
+                      <li>
+                        <span
+                          >Medical &amp; General Dentistry
+                          <em>( 2016 - 2018 )</em></span
+                        ><em>Aurora Medical &amp; Dental College</em>
+                      </li>
+                      <li>
+                        <span>Sr. Consultant <em>( 2014 - 2016 )</em></span
+                        ><em>New Apollo Hospital, California</em>
+                      </li>
+                      <li>
+                        <span>Associate Professor <em>( 2010 - 2014 )</em></span
+                        ><em>Shyamala Reddy Dental College</em>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="dc-education-holder dc-aboutinfo">
+                    <div class="dc-infotitle">
+                      <h3>Education</h3>
+                    </div>
+                    <ul class="dc-expandedu">
+                      <li>
+                        <span
+                          >Periodontology &amp; Oral Implantology
+                          <em>( 2010 - 2012 )</em></span
+                        ><em>Delta Tricon Dental College</em>
+                      </li>
+                      <li>
+                        <span
+                          >MBA - Hospital Managementy
+                          <em>( 2008 - 2010 )</em></span
+                        ><em>Arena Missions University</em>
+                      </li>
+                      <li>
+                        <span
+                          >Oral Medicine and Radiology
+                          <em>( 2006 - 2008 )</em></span
+                        ><em>New Apollo Hospital, California</em>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="dc-specializations dc-aboutinfo">
+                    <div class="dc-infotitle">
+                      <h3>
+                        Specializations <a href="javascript:void(0);">(more)</a>
+                      </h3>
+                    </div>
+                    <ul class="dc-specializationslist">
+                      <li><span>Dentist</span></li>
+                      <li><span>Periodontist</span></li>
+                      <li><span>Implantologist</span></li>
+                      <li><span>Dental Surgeon</span></li>
+                      <li><span>Cosmetic/Aesthetic Dentist</span></li>
+                      <li><span>Preventive Dentistry</span></li>
+                      <li><span>Endodontist</span></li>
+                      <li><span>Orthodontist</span></li>
+                      <li><span>Primary Care Dentist</span></li>
+                    </ul>
+                  </div>
+                  <div class="dc-awards-holder dc-aboutinfo">
+                    <div class="dc-infotitle">
+                      <h3>Awards and Recognitions</h3>
+                    </div>
+                    <ul class="dc-expandedu">
+                      <li>
+                        <span
+                          >Recognized by American Dental Council of America
+                          <em>( 2006 )</em></span
+                        >
+                      </li>
+                      <li>
+                        <span
+                          >Recognized by Karnataka State Dental Council
+                          <em>( 2006 )</em></span
+                        >
+                      </li>
+                      <li>
+                        <span
+                          >Recognized by Manchester Academy of Oral Medicine and
+                          Radiology <em>( 2006 )</em></span
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="dc-specializations dc-aboutinfo dc-memberships">
+                    <div class="dc-infotitle">
+                      <h3>
+                        Memberships <a href="javascript:void(0);">(more)</a>
+                      </h3>
+                    </div>
+                    <ul class="dc-specializationslist">
+                      <li>
+                        <span
+                          >Manchester Academy of Oral Medicine and
+                          Radiology</span
+                        >
+                      </li>
+                      <li><span>United State Dental Council</span></li>
+                      <li>
+                        <span
+                          >International Association of General Dentistry
+                          (IAGD)</span
+                        >
+                      </li>
+                      <li>
+                        <span
+                          >International Federation of Dental Educators and
+                          Associations (IFDEA, USA)</span
+                        >
+                      </li>
+                      <li>
+                        <span
+                          >Sydney Academy of Aesthetic &amp; Cosmetic
+                          Dentistry</span
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="dc-specializations dc-aboutinfo dc-memberships">
+                    <div class="dc-infotitle">
+                      <h3>Registrations</h3>
+                    </div>
+                    <ul class="dc-specializationslist">
+                      <li>
+                        <span>19255A United State Dental Council, 2005</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="dc-downloads-holder dc-aboutinfo">
+                    <div class="dc-infotitle">
+                      <h3>Downloads</h3>
+                    </div>
+                    <ul class="dc-downloads-listing">
+                      <li>
+                        <a href="javascript:void(0);"
+                          ><h3>
+                            Muscles Strength Recovery.pdf<span>2.60 MB</span>
+                          </h3></a
+                        >
+                      </li>
+                      <li>
+                        <a href="javascript:void(0);"
+                          ><h3>
+                            Wisdom tooth coming.pdf<span>2.60 MB</span>
+                          </h3></a
+                        >
+                      </li>
+                      <li>
+                        <a href="javascript:void(0);"
+                          ><h3>Gap between teeth.pdf<span>2.60 MB</span></h3></a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="dc-shareprofile">
+                    <ul class="dc-simplesocialicons dc-socialiconsborder">
+                      <li class="dc-sharecontent">
+                        <span>Share Profile:</span>
+                      </li>
+                      <li class="dc-facebook">
+                        <a href="javascript:void(0);"
+                          ><i class="fab fa-facebook-f"></i
+                        ></a>
+                      </li>
+                      <li class="dc-twitter">
+                        <a href="javascript:void(0);"
+                          ><i class="fab fa-twitter"></i
+                        ></a>
+                      </li>
+                      <li class="dc-linkedin">
+                        <a href="javascript:void(0);"
+                          ><i class="fab fa-linkedin-in"></i
+                        ></a>
+                      </li>
+                      <li class="dc-instagram">
+                        <a href="javascript:void(0);"
+                          ><i class="fab fa-instagram"></i
+                        ></a>
+                      </li>
+                      <li class="dc-googleplus">
+                        <a href="javascript:void(0);"
+                          ><i class="fab fa-google-plus-g"></i
+                        ></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div
+                  class="dc-contentdoctab dc-consultation-holder tab-pane"
+                  id="consultation"
+                >
+                  <div class="dc-consultation">
+                    <div class="dc-searchresult-head">
+                      <div class="dc-title">
+                        <h4>“Dr. Tenisha” Locations</h4>
+                      </div>
+                      <div class="dc-rightarea">
+                        <div class="dc-select">
+                          <select>
+                            <option value="Sort By:">Sort By:</option>
+                            <option value="Sort By:">
+                              Last created on top
+                            </option>
+                            <option value="Sort By:">
+                              Last modified on top
+                            </option>
+                            <option value="Sort By:">
+                              Alphabetically (A-Z)
+                            </option>
+                            <option value="Sort By:">
+                              Alphabetically (Z-A)
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dc-consultation-content">
+                      <div class="dc-consultation-details">
+                        <figure class="dc-consultation-img dc-imgcolor1">
+                          <img
+                            src="images/icon-imgs/img-05.png"
+                            alt="img description"
+                          />
+                        </figure>
+                        <div class="dc-consultation-title">
+                          <h5>
+                            <a href="javascript:void(0);"
+                              >Mouth open while sleeping</a
+                            ><em>Jun 27, 2018</em>
+                          </h5>
+                          <span>Answered by “Dr. Tenisha”</span>
+                        </div>
+                        <div class="dc-description">
+                          <p>
+                            Eliteiuim sete eiu tempor incidit utoreas etnalom
+                            dolore maena aliqua udiminimate veniam quis norud
+                            exercita ullamco laboris nisi aliquip commodo
+                            consequat duis aute irure.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="dc-consultation-details">
+                        <figure class="dc-consultation-img dc-imgcolor2">
+                          <img
+                            src="images/icon-imgs/img-06.png"
+                            alt="img description"
+                          />
+                        </figure>
+                        <div class="dc-consultation-title">
+                          <h5>
+                            <a href="javascript:void(0);"
+                              >Internal Braces on monthly installments.</a
+                            ><em>Jun 27, 2018</em>
+                          </h5>
+                          <span>Answered by “Dr. Tenisha”</span>
+                        </div>
+                        <div class="dc-description">
+                          <p>
+                            Amet consectetur adipisicing eliteiuim sete eiu
+                            tempor incidit utoreas etnalom dolore maena aliqua
+                            udiminimate veniam quis norud exercita ullamco
+                            laboris nisi aliquip commodo consequat duis aute
+                            irure.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="dc-consultation-details">
+                        <figure class="dc-consultation-img dc-imgcolor3">
+                          <img
+                            src="images/icon-imgs/img-07.png"
+                            alt="img description"
+                          />
+                        </figure>
+                        <div class="dc-consultation-title">
+                          <h5>
+                            <a href="javascript:void(0);"
+                              >Swollen gums near the end of the tooth</a
+                            ><em>Jun 27, 2018</em>
+                          </h5>
+                          <span>Answered by “Dr. Tenisha”</span>
+                        </div>
+                        <div class="dc-description">
+                          <p>
+                            Amet consectetur adipisicing eliteiuim sete eiu
+                            tempor incidit utoreas etnalom dolore maena aliqua
+                            udiminimate veniam quis norud exercita ullamco
+                            laboris nisi aliquip commodo consequat duis aute
+                            irure.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="dc-consultation-details">
+                        <figure class="dc-consultation-img dc-imgcolor1">
+                          <img
+                            src="images/icon-imgs/img-05.png"
+                            alt="img description"
+                          />
+                        </figure>
+                        <div class="dc-consultation-title">
+                          <h5>
+                            <a href="javascript:void(0);"
+                              >Mouth open while sleeping</a
+                            ><em>Jun 27, 2018</em>
+                          </h5>
+                          <span>Answered by “Dr. Tenisha”</span>
+                        </div>
+                        <div class="dc-description">
+                          <p>
+                            Eliteiuim sete eiu tempor incidit utoreas etnalom
+                            dolore maena aliqua udiminimate veniam quis norud
+                            exercita ullamco laboris nisi aliquip commodo
+                            consequat duis aute irure.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="dc-consultation-details">
+                        <figure class="dc-consultation-img dc-imgcolor2">
+                          <img
+                            src="images/icon-imgs/img-06.png"
+                            alt="img description"
+                          />
+                        </figure>
+                        <div class="dc-consultation-title">
+                          <h5>
+                            <a href="javascript:void(0);"
+                              >Internal Braces on monthly installments.</a
+                            ><em>Jun 27, 2018</em>
+                          </h5>
+                          <span>Answered by “Dr. Tenisha”</span>
+                        </div>
+                        <div class="dc-description">
+                          <p>
+                            Amet consectetur adipisicing eliteiuim sete eiu
+                            tempor incidit utoreas etnalom dolore maena aliqua
+                            udiminimate veniam quis norud exercita ullamco
+                            laboris nisi aliquip commodo consequat duis aute
+                            irure.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="dc-consultation-details">
+                        <figure class="dc-consultation-img dc-imgcolor3">
+                          <img
+                            src="images/icon-imgs/img-07.png"
+                            alt="img description"
+                          />
+                        </figure>
+                        <div class="dc-consultation-title">
+                          <h5>
+                            <a href="javascript:void(0);"
+                              >Swollen gums near the end of the tooth</a
+                            ><em>Jun 27, 2018</em>
+                          </h5>
+                          <span>Answered by “Dr. Tenisha”</span>
+                        </div>
+                        <div class="dc-description">
+                          <p>
+                            Amet consectetur adipisicing eliteiuim sete eiu
+                            tempor incidit utoreas etnalom dolore maena aliqua
+                            udiminimate veniam quis norud exercita ullamco
+                            laboris nisi aliquip commodo consequat duis aute
+                            irure.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="dc-consultation-details">
+                        <figure class="dc-consultation-img dc-imgcolor1">
+                          <img
+                            src="images/icon-imgs/img-05.png"
+                            alt="img description"
+                          />
+                        </figure>
+                        <div class="dc-consultation-title">
+                          <h5>
+                            <a href="javascript:void(0);"
+                              >Mouth open while sleeping</a
+                            ><em>Jun 27, 2018</em>
+                          </h5>
+                          <span>Answered by “Dr. Tenisha”</span>
+                        </div>
+                        <div class="dc-description">
+                          <p>
+                            Eliteiuim sete eiu tempor incidit utoreas etnalom
+                            dolore maena aliqua udiminimate veniam quis norud
+                            exercita ullamco laboris nisi aliquip commodo
+                            consequat duis aute irure.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="dc-consultation-details">
+                        <figure class="dc-consultation-img dc-imgcolor2">
+                          <img
+                            src="images/icon-imgs/img-06.png"
+                            alt="img description"
+                          />
+                        </figure>
+                        <div class="dc-consultation-title">
+                          <h5>
+                            <a href="javascript:void(0);"
+                              >Internal Braces on monthly installments.</a
+                            ><em>Jun 27, 2018</em>
+                          </h5>
+                          <span>Answered by “Dr. Tenisha”</span>
+                        </div>
+                        <div class="dc-description">
+                          <p>
+                            Amet consectetur adipisicing eliteiuim sete eiu
+                            tempor incidit utoreas etnalom dolore maena aliqua
+                            udiminimate veniam quis norud exercita ullamco
+                            laboris nisi aliquip commodo consequat duis aute
+                            irure.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="dc-consultation-details">
+                        <figure class="dc-consultation-img dc-imgcolor3">
+                          <img
+                            src="images/icon-imgs/img-07.png"
+                            alt="img description"
+                          />
+                        </figure>
+                        <div class="dc-consultation-title">
+                          <h5>
+                            <a href="javascript:void(0);"
+                              >Swollen gums near the end of the tooth</a
+                            ><em>Jun 27, 2018</em>
+                          </h5>
+                          <span>Answered by “Dr. Tenisha”</span>
+                        </div>
+                        <div class="dc-description">
+                          <p>
+                            Amet consectetur adipisicing eliteiuim sete eiu
+                            tempor incidit utoreas etnalom dolore maena aliqua
+                            udiminimate veniam quis norud exercita ullamco
+                            laboris nisi aliquip commodo consequat duis aute
+                            irure.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="dc-consultation-details">
+                        <figure class="dc-consultation-img dc-imgcolor1">
+                          <img
+                            src="images/icon-imgs/img-05.png"
+                            alt="img description"
+                          />
+                        </figure>
+                        <div class="dc-consultation-title">
+                          <h5>
+                            <a href="javascript:void(0);"
+                              >Mouth open while sleeping</a
+                            ><em>Jun 27, 2018</em>
+                          </h5>
+                          <span>Answered by “Dr. Tenisha”</span>
+                        </div>
+                        <div class="dc-description">
+                          <p>
+                            Eliteiuim sete eiu tempor incidit utoreas etnalom
+                            dolore maena aliqua udiminimate veniam quis norud
+                            exercita ullamco laboris nisi aliquip commodo
+                            consequat duis aute irure.
+                          </p>
+                        </div>
+                      </div>
+                      <nav class="dc-pagination">
+                        <ul>
+                          <li class="dc-prevpage">
+                            <a href="javascrip:void(0);"
+                              ><i class="lnr lnr-chevron-left"></i
+                            ></a>
+                          </li>
+                          <li><a href="javascrip:void(0);">1</a></li>
+                          <li><a href="javascrip:void(0);">2</a></li>
+                          <li><a href="javascrip:void(0);">3</a></li>
+                          <li><a href="javascrip:void(0);">4</a></li>
+                          <li><a href="javascrip:void(0);">...</a></li>
+                          <li><a href="javascrip:void(0);">50</a></li>
+                          <li class="dc-nextpage">
+                            <a href="javascrip:void(0);"
+                              ><i class="lnr lnr-chevron-right"></i
+                            ></a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>
+                  <div class="dc-shareprofile">
+                    <ul class="dc-simplesocialicons dc-socialiconsborder">
+                      <li class="dc-sharecontent">
+                        <span>Share Profile:</span>
+                      </li>
+                      <li class="dc-facebook">
+                        <a href="javascript:void(0);"
+                          ><i class="fab fa-facebook-f"></i
+                        ></a>
+                      </li>
+                      <li class="dc-twitter">
+                        <a href="javascript:void(0);"
+                          ><i class="fab fa-twitter"></i
+                        ></a>
+                      </li>
+                      <li class="dc-linkedin">
+                        <a href="javascript:void(0);"
+                          ><i class="fab fa-linkedin-in"></i
+                        ></a>
+                      </li>
+                      <li class="dc-instagram">
+                        <a href="javascript:void(0);"
+                          ><i class="fab fa-instagram"></i
+                        ></a>
+                      </li>
+                      <li class="dc-googleplus">
+                        <a href="javascript:void(0);"
+                          ><i class="fab fa-google-plus-g"></i
+                        ></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div
+                  class="dc-contentdoctab dc-feedback-holder tab-pane"
+                  id="feedback"
+                >
+                  <div class="dc-feedback">
+                    <div class="dc-searchresult-head">
+                      <div class="dc-title"><h4>Patient Feedback</h4></div>
+                      <div class="dc-rightarea">
+                        <div class="dc-select">
+                          <select>
+                            <option value="Sort By:">Sort By:</option>
+                            <option value="Sort By:">
+                              Last created on top
+                            </option>
+                            <option value="Sort By:">
+                              Last modified on top
+                            </option>
+                            <option value="Sort By:">
+                              Alphabetically (A-Z)
+                            </option>
+                            <option value="Sort By:">
+                              Alphabetically (Z-A)
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dc-consultation-content dc-feedback-content">
+                      <div class="dc-consultation-details">
+                        <figure class="dc-consultation-img">
+                          <img src="" alt="img description" />
+                        </figure>
+                        <div class="dc-consultation-title">
+                          <h5>
+                            <a href="javascript:void(0);"
+                              >Visited For Dental Checkup (General)</a
+                            ><em
+                              >Carolin Summerlin
+                              <i class="fa fa-check-circle"></i
+                            ></em>
+                          </h5>
+                          <span>Mar 27, 2019</span>
+                        </div>
+                        <div class="dc-description">
+                          <p>
+                            Eliteiuim sete eiu tempor incidit utoreas etnalom
+                            dolore maena aliqua udiminimate veniam quis norud
+                            exercita ullamco laboris nisi aliquip commodo
+                            consequat duis aute irure.<a
+                              href="javascript:void(0);"
+                              >(more)</a
+                            >
+                          </p>
+                          <a href="javascript:void(0);"
+                            ><i class="ti-thumb-up"></i>I Recommend This
+                            Doctor</a
+                          >
+                        </div>
+                      </div>
+                      <div class="dc-consultation-details">
+                        <figure class="dc-consultation-img">
+                          <img src="" alt="img description" />
+                        </figure>
+                        <div class="dc-consultation-title">
+                          <h5>
+                            <a href="javascript:void(0);"
+                              >Visited For Conservative Dentistry</a
+                            ><em
+                              >Charlene Trippe <i class="fa fa-check-circle"></i
+                            ></em>
+                          </h5>
+                          <span>Mar 27, 2019</span>
+                        </div>
+                        <div class="dc-description">
+                          <p>
+                            Eliteiuim sete eiu tempor incidit utoreas etnalom
+                            dolore maena aliqua udiminimate veniam quis norud
+                            exercita ullamco laboris nisi aliquip commodo
+                            consequat duis aute irure.<a
+                              href="javascript:void(0);"
+                              >(more)</a
+                            >
+                          </p>
+                          <a href="javascript:void(0);" class="dontrecommend"
+                            ><i class="ti-thumb-up"></i>I Don’t Recommend</a
+                          >
+                        </div>
+                      </div>
+                      <div class="dc-consultation-details">
+                        <figure class="dc-consultation-img">
+                          <img src="" alt="img description" />
+                        </figure>
+                        <div class="dc-consultation-title">
+                          <h5>
+                            <a href="javascript:void(0);"
+                              >Visited For Teeth Sensitive to Hot and Cold</a
+                            ><em
+                              >Mardell Buchan <i class="fa fa-check-circle"></i
+                            ></em>
+                          </h5>
+                          <span>Mar 27, 2019</span>
+                        </div>
+                        <div class="dc-description">
+                          <p>
+                            Eliteiuim sete eiu tempor incidit utoreas etnalom
+                            dolore maena aliqua udiminimate veniam quis norud
+                            exercita ullamco laboris nisi aliquip commodo
+                            consequat duis aute irure.<a
+                              href="javascript:void(0);"
+                              >(more)</a
+                            >
+                          </p>
+                          <a href="javascript:void(0);"
+                            ><i class="ti-thumb-up"></i>I Recommend This
+                            Doctor</a
+                          >
+                        </div>
+                      </div>
+                      <div class="dc-consultation-details">
+                        <figure class="dc-consultation-img">
+                          <img src="" alt="img description" />
+                        </figure>
+                        <div class="dc-consultation-title">
+                          <h5>
+                            <a href="javascript:void(0);"
+                              >Visited For Dental Fillings</a
+                            ><em
+                              >Angie Michell <i class="fa fa-check-circle"></i
+                            ></em>
+                          </h5>
+                          <span>Mar 27, 2019</span>
+                        </div>
+                        <div class="dc-description">
+                          <p>
+                            Eliteiuim sete eiu tempor incidit utoreas etnalom
+                            dolore maena aliqua udiminimate veniam quis norud
+                            exercita ullamco laboris nisi aliquip commodo
+                            consequat duis aute irure.<a
+                              href="javascript:void(0);"
+                              >(more)</a
+                            >
+                          </p>
+                          <a href="javascript:void(0);" class="dontrecommend"
+                            ><i class="ti-thumb-up"></i>I Don’t Recommend</a
+                          >
+                        </div>
+                      </div>
+                      <div class="dc-consultation-details">
+                        <figure class="dc-consultation-img">
+                          <img src="" alt="img description" />
+                        </figure>
+                        <div class="dc-consultation-title">
+                          <h5>
+                            <a href="javascript:void(0);"
+                              >Visited For Toothache, Loose Teeth</a
+                            ><em
+                              >Katheleen Friesen
+                              <i class="fa fa-check-circle"></i
+                            ></em>
+                          </h5>
+                          <span>Mar 27, 2019</span>
+                        </div>
+                        <div class="dc-description">
+                          <p>
+                            Eliteiuim sete eiu tempor incidit utoreas etnalom
+                            dolore maena aliqua udiminimate veniam quis norud
+                            exercita ullamco laboris nisi aliquip commodo
+                            consequat duis aute irure.<a
+                              href="javascript:void(0);"
+                              >(more)</a
+                            >
+                          </p>
+                          <a href="javascript:void(0);"
+                            ><i class="ti-thumb-up"></i>I Don’t Recommend</a
+                          >
+                        </div>
+                      </div>
+                      <nav class="dc-pagination">
+                        <ul>
+                          <li class="dc-prevpage">
+                            <a href="javascrip:void(0);"
+                              ><i class="lnr lnr-chevron-left"></i
+                            ></a>
+                          </li>
+                          <li><a href="javascrip:void(0);">1</a></li>
+                          <li><a href="javascrip:void(0);">2</a></li>
+                          <li><a href="javascrip:void(0);">3</a></li>
+                          <li><a href="javascrip:void(0);">4</a></li>
+                          <li><a href="javascrip:void(0);">...</a></li>
+                          <li><a href="javascrip:void(0);">50</a></li>
+                          <li class="dc-nextpage">
+                            <a href="javascrip:void(0);"
+                              ><i class="lnr lnr-chevron-right"></i
+                            ></a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>
+                  <div class="dc-shareprofile">
+                    <ul class="dc-simplesocialicons dc-socialiconsborder">
+                      <li class="dc-sharecontent">
+                        <span>Share Profile:</span>
+                      </li>
+                      <li class="dc-facebook">
+                        <a href="javascript:void(0);"
+                          ><i class="fab fa-facebook-f"></i
+                        ></a>
+                      </li>
+                      <li class="dc-twitter">
+                        <a href="javascript:void(0);"
+                          ><i class="fab fa-twitter"></i
+                        ></a>
+                      </li>
+                      <li class="dc-linkedin">
+                        <a href="javascript:void(0);"
+                          ><i class="fab fa-linkedin-in"></i
+                        ></a>
+                      </li>
+                      <li class="dc-instagram">
+                        <a href="javascript:void(0);"
+                          ><i class="fab fa-instagram"></i
+                        ></a>
+                      </li>
+                      <li class="dc-googleplus">
+                        <a href="javascript:void(0);"
+                          ><i class="fab fa-google-plus-g"></i
+                        ></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div
+                  class="dc-contentdoctab dc-articles-holder tab-pane"
+                  id="articles"
+                >
+                  <div class="dc-articles">
+                    <div class="dc-searchresult-head">
+                      <div class="dc-title">
+                        <h4>Articles By “Dr. Tenisha”</h4>
+                      </div>
+                      <div class="dc-rightarea">
+                        <div class="dc-select">
+                          <select>
+                            <option value="Sort By:">Sort By:</option>
+                            <option value="Sort By:">
+                              Last created on top
+                            </option>
+                            <option value="Sort By:">
+                              Last modified on top
+                            </option>
+                            <option value="Sort By:">
+                              Alphabetically (A-Z)
+                            </option>
+                            <option value="Sort By:">
+                              Alphabetically (Z-A)
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dc-articleslist-content dc-articles-list">
+                      <div class="dc-article">
+                        <figure class="dc-articleimg">
+                          <img
+                            src="images/articles/img-04.jpg"
+                            alt="img description"
+                          />
+                          <figcaption>
+                            <div class="dc-articlesdocinfo">
+                              <img
+                                src="images/articles/user/img-01.jpg"
+                                alt="img description"
+                              />
+                              <span>Lincoln Claggett</span>
+                            </div>
+                          </figcaption>
+                        </figure>
+                        <div class="dc-articlecontent">
+                          <div class="dc-title">
+                            <a href="javascript:void(0);" class="dc-articleby"
+                              >Business</a
+                            >
+                            <h3>
+                              <a href="javascript:void(0);"
+                                >Best Way to Stay Healthy and Boost Your
+                                Metabolism</a
+                              >
+                            </h3>
+                            <span class="dc-datetime"
+                              ><i class="ti-calendar"></i> Jun 27, 2019</span
+                            >
+                          </div>
+                          <ul class="dc-moreoptions">
+                            <li>
+                              <a href="javascript:void(0);"
+                                ><i class="ti-heart"></i> 12,032</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);"
+                                ><i class="ti-eye"></i> 1,26,558</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);"
+                                ><i class="ti-share"></i> Share</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="dc-article">
+                        <figure class="dc-articleimg">
+                          <img
+                            src="images/articles/img-05.jpg"
+                            alt="img description"
+                          />
+                          <figcaption>
+                            <div class="dc-articlesdocinfo">
+                              <img
+                                src="images/articles/user/img-02.jpg"
+                                alt="img description"
+                              />
+                              <span>Lincoln Claggett</span>
+                            </div>
+                          </figcaption>
+                        </figure>
+                        <div class="dc-articlecontent">
+                          <div class="dc-title">
+                            <a href="javascript:void(0);" class="dc-articleby"
+                              >Medical</a
+                            >
+                            <h3>
+                              <a href="javascript:void(0);"
+                                >10 Tips, We Challenge You Won’t Get Tired
+                                Easily Even After Hard Work</a
+                              >
+                            </h3>
+                            <span class="dc-datetime"
+                              ><i class="ti-calendar"></i> Jun 27, 2019</span
+                            >
+                          </div>
+                          <ul class="dc-moreoptions">
+                            <li>
+                              <a href="javascript:void(0);"
+                                ><i class="ti-heart"></i> 12,032</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);"
+                                ><i class="ti-eye"></i> 1,26,558</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);"
+                                ><i class="ti-share"></i> Share</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="dc-article">
+                        <figure class="dc-articleimg">
+                          <img
+                            src="images/articles/img-06.jpg"
+                            alt="img description"
+                          />
+                          <figcaption>
+                            <div class="dc-articlesdocinfo">
+                              <img
+                                src="images/articles/user/img-03.jpg"
+                                alt="img description"
+                              />
+                              <span>Lincoln Claggett</span>
+                            </div>
+                          </figcaption>
+                        </figure>
+                        <div class="dc-articlecontent">
+                          <div class="dc-title">
+                            <a href="javascript:void(0);" class="dc-articleby"
+                              >DIY, Freelancing</a
+                            >
+                            <h3>
+                              <a href="javascript:void(0);"
+                                >Always Keep Your First Aid Box Ready Near to
+                                You For Healthy Life</a
+                              >
+                            </h3>
+                            <span class="dc-datetime"
+                              ><i class="ti-calendar"></i> Jun 27, 2019</span
+                            >
+                          </div>
+                          <ul class="dc-moreoptions">
+                            <li>
+                              <a href="javascript:void(0);"
+                                ><i class="ti-heart"></i> 12,032</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);"
+                                ><i class="ti-eye"></i> 1,26,558</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);"
+                                ><i class="ti-share"></i> Share</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="dc-article">
+                        <figure class="dc-articleimg">
+                          <img
+                            src="images/articles/img-07.jpg"
+                            alt="img description"
+                          />
+                          <figcaption>
+                            <div class="dc-articlesdocinfo">
+                              <img
+                                src="images/articles/user/img-01.jpg"
+                                alt="img description"
+                              />
+                              <span>Lincoln Claggett</span>
+                            </div>
+                          </figcaption>
+                        </figure>
+                        <div class="dc-articlecontent">
+                          <div class="dc-title">
+                            <a href="javascript:void(0);" class="dc-articleby"
+                              >Business, Lifestyle</a
+                            >
+                            <h3>
+                              <a href="javascript:void(0);"
+                                >There is only one happiness in this life, to
+                                love and be loved.</a
+                              >
+                            </h3>
+                            <span class="dc-datetime"
+                              ><i class="ti-calendar"></i> Jun 27, 2019</span
+                            >
+                          </div>
+                          <ul class="dc-moreoptions">
+                            <li>
+                              <a href="javascript:void(0);"
+                                ><i class="ti-heart"></i> 12,032</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);"
+                                ><i class="ti-eye"></i> 1,26,558</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);"
+                                ><i class="ti-share"></i> Share</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="dc-article">
+                        <figure class="dc-articleimg">
+                          <img
+                            src="images/articles/img-08.jpg"
+                            alt="img description"
+                          />
+                          <figcaption>
+                            <div class="dc-articlesdocinfo">
+                              <img
+                                src="images/articles/user/img-02.jpg"
+                                alt="img description"
+                              />
+                              <span>Lincoln Claggett</span>
+                            </div>
+                          </figcaption>
+                        </figure>
+                        <div class="dc-articlecontent">
+                          <div class="dc-title">
+                            <a href="javascript:void(0);" class="dc-articleby"
+                              >Business, Lifestyle</a
+                            >
+                            <h3>
+                              <a href="javascript:void(0);"
+                                >A flower cannot blossom without sunshine, and
+                                man cannot live without health.</a
+                              >
+                            </h3>
+                            <span class="dc-datetime"
+                              ><i class="ti-calendar"></i> Jun 27, 2019</span
+                            >
+                          </div>
+                          <ul class="dc-moreoptions">
+                            <li>
+                              <a href="javascript:void(0);"
+                                ><i class="ti-heart"></i> 12,032</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);"
+                                ><i class="ti-eye"></i> 1,26,558</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);"
+                                ><i class="ti-share"></i> Share</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <nav class="dc-pagination">
+                        <ul>
+                          <li class="dc-prevpage">
+                            <a href="javascrip:void(0);"
+                              ><i class="lnr lnr-chevron-left"></i
+                            ></a>
+                          </li>
+                          <li><a href="javascrip:void(0);">1</a></li>
+                          <li><a href="javascrip:void(0);">2</a></li>
+                          <li><a href="javascrip:void(0);">3</a></li>
+                          <li><a href="javascrip:void(0);">4</a></li>
+                          <li><a href="javascrip:void(0);">...</a></li>
+                          <li><a href="javascrip:void(0);">50</a></li>
+                          <li class="dc-nextpage">
+                            <a href="javascrip:void(0);"
+                              ><i class="lnr lnr-chevron-right"></i
+                            ></a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>
+                  <div class="dc-shareprofile">
+                    <ul class="dc-simplesocialicons dc-socialiconsborder">
+                      <li class="dc-sharecontent">
+                        <span>Share Profile:</span>
+                      </li>
+                      <li class="dc-facebook">
+                        <a href="javascript:void(0);"
+                          ><i class="fab fa-facebook-f"></i
+                        ></a>
+                      </li>
+                      <li class="dc-twitter">
+                        <a href="javascript:void(0);"
+                          ><i class="fab fa-twitter"></i
+                        ></a>
+                      </li>
+                      <li class="dc-linkedin">
+                        <a href="javascript:void(0);"
+                          ><i class="fab fa-linkedin-in"></i
+                        ></a>
+                      </li>
+                      <li class="dc-instagram">
+                        <a href="javascript:void(0);"
+                          ><i class="fab fa-instagram"></i
+                        ></a>
+                      </li>
+                      <li class="dc-googleplus">
+                        <a href="javascript:void(0);"
+                          ><i class="fab fa-google-plus-g"></i
+                        ></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- User Listing End-->
+  </div>
+  <!-- Emerging Clients End -->
+  <!--Skills Start-->
+  <section class="dc-haslayaout dc-footeraboutus dc-bgcolor">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="dc-widgetskills">
+            <div class="dc-fwidgettitle">
+              <h3>By Speciality</h3>
+            </div>
+            <ul class="dc-fwidgetcontent">
+              <li><a href="javascript:void(0);">Allergy Specialist</a></li>
+              <li><a href="javascript:void(0);">Andrologist</a></li>
+              <li><a href="javascript:void(0);">Anesthetist</a></li>
+              <li><a href="javascript:void(0);">Audiologist</a></li>
+              <li><a href="javascript:void(0);">Dietitian/Nutritionist</a></li>
+              <li class="dc-viewmore">
+                <a href="javascript:void(0);">View All</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="dc-widgetskill">
+            <div class="dc-fwidgettitle">
+              <h3>Doctors In US</h3>
+            </div>
+            <ul class="dc-fwidgetcontent">
+              <li><a href="javascript:void(0);">Laproscopic Surgeon</a></li>
+              <li>
+                <a href="javascript:void(0);">Oral And Maxillofacial Surgeon</a>
+              </li>
+              <li><a href="javascript:void(0);">Orthopedic Surgeon</a></li>
+              <li>
+                <a href="javascript:void(0);">Pediatric Cardiac Surgeon</a>
+              </li>
+              <li>
+                <a href="javascript:void(0);">Pediatric Orthopedic Surgeon</a>
+              </li>
+              <li class="dc-viewmore">
+                <a href="javascript:void(0);">View All</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="dc-footercol dc-widgetcategories">
+            <div class="dc-fwidgettitle">
+              <h3>By Categories</h3>
+            </div>
+            <ul class="dc-fwidgetcontent">
+              <li><a href="javascript:void(0);">Cosmetic Surgeon</a></li>
+              <li><a href="javascript:void(0);">Eye Specialist</a></li>
+              <li><a href="javascript:void(0);">Gastroenterologist</a></li>
+              <li><a href="javascript:void(0);">General Physician</a></li>
+              <li><a href="javascript:void(0);">General Practitioner</a></li>
+              <li class="dc-viewmore">
+                <a href="javascript:void(0);">View All</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="dc-widgetbylocation">
+            <div class="dc-fwidgettitle">
+              <h3>By Location</h3>
+            </div>
+            <ul class="dc-fwidgetcontent">
+              <li><a href="javascript:void(0);">Switzerland</a></li>
+              <li><a href="javascript:void(0);">Canada</a></li>
+              <li><a href="javascript:void(0);">Germany</a></li>
+              <li><a href="javascript:void(0);">United Kingdom</a></li>
+              <li><a href="javascript:void(0);">Japan</a></li>
+              <li class="dc-viewmore">
+                <a href="javascript:void(0);">View All</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--Skills End-->
+</main>
+<!-- Main End -->

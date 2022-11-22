@@ -1,0 +1,95 @@
+<!--* Login Authentication Alert  -->
+<ng-container *ngIf="LoginFailure">
+  <div class="Alert_Div_Parent">
+    <div class="Alert_Text_Parent_Div">
+      <span class="Alert_Text">Please Login First</span>
+    </div>
+    <div class="Alert_Icon_Parent_Div">
+      <mat-icon
+        [ngClass]="LoginFailure == true ? 'Alert_Icon' : 'LoginSuccess'"
+        class="Alert_Icon"
+        ><span class="fa fa-exclamation-triangle"></span
+      ></mat-icon>
+    </div>
+  </div>
+</ng-container>
+
+<!--* Appointment Request Success Alert  -->
+<ng-container *ngIf="BookingRequest">
+  <div class="Alert_Div_Parent">
+    <div class="Alert_Text_Parent_Div">
+      <span class="Alert_Text">Appointment Request Successfully</span>
+    </div>
+    <div class="Alert_Icon_Parent_Div">
+      <mat-icon
+        [ngClass]="BookingRequest == true ? 'LoginSuccess' : 'Alert_Icon'"
+        class="Alert_Icon"
+        ><span class="fa fa-check-circle"></span
+      ></mat-icon>
+    </div>
+  </div>
+</ng-container>
+
+<!--* Login Success Alert  -->
+<ng-container *ngIf="LoginSuccess">
+  <div class="Alert_Div_Parent">
+    <div class="Alert_Text_Parent_Div">
+      <span class="Alert_Text">Login Successfully</span>
+    </div>
+    <div class="Alert_Icon_Parent_Div">
+      <mat-icon
+        [ngClass]="LoginSuccess == true ? 'LoginSuccess' : 'Alert_Icon'"
+        class="Alert_Icon"
+        ><span class="fa fa-check-circle"></span
+      ></mat-icon>
+    </div>
+  </div>
+</ng-container>
+
+<!--* Logout Success Alert  -->
+<ng-container *ngIf="Logout">
+  <div class="Alert_Div_Parent">
+    <div class="Alert_Text_Parent_Div">
+      <span class="Alert_Text">Logout Successfully</span>
+    </div>
+    <div class="Alert_Icon_Parent_Div">
+      <mat-icon
+        [ngClass]="Logout == true ? 'LoginSuccess' : 'Alert_Icon'"
+        class="Alert_Icon"
+        ><span class="fa fa-check-circle"></span
+      ></mat-icon>
+    </div>
+  </div>
+</ng-container>
+
+<!--* Registered Success Alert  -->
+<ng-container *ngIf="RegisteredSuccess">
+  <div class="Alert_Div_Parent">
+    <div class="Alert_Text_Parent_Div">
+      <span class="Alert_Text">Registered Successfully</span>
+    </div>
+    <div class="Alert_Icon_Parent_Div">
+      <mat-icon
+        [ngClass]="RegisteredSuccess == true ? 'LoginSuccess' : 'Alert_Icon'"
+        class="Alert_Icon"
+        ><span class="fa fa-check-circle"></span
+      ></mat-icon>
+    </div>
+  </div>
+</ng-container>
+
+<!--* Availability Update Alert  -->
+<ng-container *ngIf="AvailabilityUpdated">
+  <div class="Alert_Div_Parent">
+    <div class="Alert_Text_Parent_Div">
+      <span class="Alert_Text">Availability Days Updated Successfully</span>
+    </div>
+    <div class="Alert_Icon_Parent_Div">
+      <mat-icon
+        [ngClass]="AvailabilityUpdated == true ? 'LoginSuccess' : 'Alert_Icon'"
+        class="Alert_Icon"
+        ><span class="fa fa-check-circle"></span
+      ></mat-icon>
+    </div>
+  </div>
+</ng-container>

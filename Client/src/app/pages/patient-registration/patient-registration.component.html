@@ -1,0 +1,126 @@
+<!-- <app-header></app-header> -->
+<!--Register Form Start-->
+<div class="dc-haslayout dc-main-section">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 push-lg-2">
+        <div class="dc-registerformhold">
+          <div class="dc-registerformmain">
+            <div class="dc-registerhead">
+              <div class="dc-title">
+                <h3>Join As a User</h3>
+              </div>
+              <div class="dc-description">
+                <p>
+                  Consectetur adipisicing elit sed dotem eiusmod tempor incune
+                  utnaem labore etdolore maigna aliqua enim poskina
+                </p>
+              </div>
+            </div>
+            <div class="dc-joinforms">
+              <form
+                [formGroup]="PatientForm"
+                class="dc-formtheme dc-formregister"
+              >
+                <fieldset class="dc-registerformgroup">
+                  <div
+                    class="form-group dc-form-group-dropdown form-group-full"
+                  >
+                    <span class="dc-select">
+                      <select
+                        class="form-select"
+                        aria-label="Default select example"
+                        formControlName="gender"
+                        placeholder="Gender"
+                      >
+                        <option selected disabled>Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                      </select>
+                    </span>
+                    <input
+                      formControlName="full_name"
+                      type="text"
+                      name="Full Name"
+                      class="form-control"
+                      placeholder="Full Name"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      formControlName="email"
+                      type="text"
+                      name="Email"
+                      class="form-control"
+                      placeholder="Email"
+                    />
+                  </div>
+                  <div class="form-group form-group-half">
+                    <input
+                      formControlName="phone"
+                      type="text"
+                      name="Phone"
+                      class="form-control"
+                      placeholder="Phone"
+                    />
+                  </div>
+                  <div class="form-group form-group-half">
+                    <input
+                      formControlName="age"
+                      type="text"
+                      name="Age"
+                      class="form-control"
+                      placeholder="Age"
+                    />
+                  </div>
+                  <div class="form-group form-group-half">
+                    <input
+                      formControlName="password"
+                      type="text"
+                      name="Password"
+                      class="form-control"
+                      placeholder="Password"
+                    />
+                  </div>
+                  <div class="form-group form-group-half">
+                    <input
+                      formControlName="cpassword"
+                      type="text"
+                      name="Confirm Password"
+                      class="form-control"
+                      placeholder="Confirm Password"
+                    />
+                  </div>
+
+                  <!-- <div class="form-group form-group-full">
+                    <input
+                      class="form-control form-control-sm"
+                      (change)="GetImg($event)"
+                      formControlName="img"
+                      id="formFileSm"
+                      type="file"
+                    />
+                  </div> -->
+
+                  <div class="form-group">
+                    <button type="submit" (click)="Register()" class="dc-btn">
+                      Register
+                    </button>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+          <div class="dc-registerformfooter">
+            <span
+              >Already Have an Account?
+              <a href="javascript:void(0);">Login Now</a></span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Register Form End-->
+<!-- <app-footer></app-footer> -->

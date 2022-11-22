@@ -1,0 +1,77 @@
+<div class="content-wrapper">
+  <div
+    class="col-md-12 grid-margin stretch-card"
+    style="padding-left: 0; padding-right: 0"
+  >
+    <div class="manage_patient_parent_container">
+      <h4 class="card-header p-4">Your Appointment</h4>
+      <div class="p-4 table-responsive">
+        <div class="card mb-4">
+          <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            DataTable Example
+          </div>
+          <div class="table_parent_container">
+            <table
+              class="table"
+              style="margin-bottom: 0"
+              id="dataTable"
+              width="100%"
+              cellspacing="0"
+            >
+              <thead>
+                <tr>
+                  <th>Doctor Name</th>
+                  <th>Doctor Age</th>
+                  <th>Appointment Date</th>
+                  <th>Appointment Status</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>Doctor Name</th>
+                  <th>Doctor Age</th>
+                  <th>Appointment Date</th>
+                  <th>Appointment Status</th>
+                </tr>
+              </tfoot>
+              <tbody>
+                <ng-container *ngIf="YourAppointmentsArray.length == 0">
+                  <p>No Appointments Yet.</p>
+                </ng-container>
+
+                <ng-container
+                  *ngFor="let BookedDoctor of YourAppointmentsArray"
+                >
+                  <tr>
+                    <td>{{ BookedDoctor.doctor_full_name }}</td>
+                    <td>{{ BookedDoctor.doctor_age }}</td>
+                    <td>{{ BookedDoctor.doctor_appointment_date }}</td>
+
+                    <ng-container
+                      *ngIf="BookedDoctor.booked_doctor_appointment_status == 2"
+                    >
+                      <td style="color: orange">Pending</td>
+                    </ng-container>
+
+                    <ng-container
+                      *ngIf="BookedDoctor.booked_doctor_appointment_status == 1"
+                    >
+                      <td style="color: green">Accepted</td>
+                    </ng-container>
+
+                    <ng-container
+                      *ngIf="BookedDoctor.booked_doctor_appointment_status == 0"
+                    >
+                      <td style="color: red">Rejected</td>
+                    </ng-container>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
