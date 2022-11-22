@@ -8,9 +8,10 @@ import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
 })
 export class AlertDialogBoxComponent implements OnInit {
   LoginSuccess: boolean = false;
-  LoginFailure: boolean = false;
+  NotLoggedIn: boolean = false;
   Logout: boolean = false;
   BookingRequest: boolean = false;
+  Registered: boolean = false;
   RegisteredSuccess: boolean = false;
   AvailabilityUpdated: boolean = false;
 
@@ -19,7 +20,7 @@ export class AlertDialogBoxComponent implements OnInit {
     console.log(this.data, 'DATA FROM INPUT ALERT');
 
     if (this.data == 'Not_Authenticated') {
-      this.LoginFailure = true;
+      this.NotLoggedIn = true;
     } else if (this.data == 'Authenticated') {
       this.LoginSuccess = true;
     } else if (this.data == 'Logout') {

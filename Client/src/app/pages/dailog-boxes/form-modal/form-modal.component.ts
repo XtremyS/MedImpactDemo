@@ -26,6 +26,7 @@ export class FormModalComponent implements OnInit {
     this._Service.GetUserData().subscribe(async (res) => {
       if (res.status == 200) {
         this.LoggedInUserData = res.body;
+        console.log(this.LoggedInUserData);
 
         //* Patching The Api User Data Into Form
         this.AppointmentsForm.patchValue({
@@ -68,22 +69,23 @@ export class FormModalComponent implements OnInit {
     });
   }
   SubmitForm() {
-    //* Patching The Api Doctor Appointment Date Into Form
-    this.AppointmentsForm.patchValue({
-      doctor_appointment_date: this.AppointmentsForm.value.appointment_date,
-    });
+    // //* Patching The Api Doctor Appointment Date Into Form
+    // this.AppointmentsForm.patchValue({
+    //   doctor_appointment_date: this.AppointmentsForm.value.appointment_date,
+    // });
 
-    //* Book Appointment API called
-    this._Service
-      .BookDocAppointment(this.AppointmentsForm.value)
-      .subscribe(async (data) => {
-        if (data.status == 201) {
-          //* Opening Alert Modal WIth This Method
-          this._ModalService.OpenAlertDialog('booking_request_success');
-          //* Closing Form Dialog Box With This Method
-          this.FormDialogBox.close();
-        }
-      });
+    // //* Book Appointment API called
+    // this._Service
+    //   .BookDocAppointment(this.AppointmentsForm.value)
+    //   .subscribe(async (data) => {
+    //     if (data.status == 201) {
+    //       //* Opening Alert Modal WIth This Method
+    //       this._ModalService.OpenAlertDialog('booking_request_success');
+    //       //* Closing Form Dialog Box With This Method
+    //       this.FormDialogBox.close();
+    //     }
+    //     console.log(data, 'RESPONSE DATA OF MODAL');
+    //   });
 
     console.log(this.AppointmentsForm.value);
   }

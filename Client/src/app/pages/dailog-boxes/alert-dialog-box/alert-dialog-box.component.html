@@ -1,12 +1,12 @@
 <!--* Login Authentication Alert  -->
-<ng-container *ngIf="LoginFailure">
+<ng-container *ngIf="NotLoggedIn">
   <div class="Alert_Div_Parent">
     <div class="Alert_Text_Parent_Div">
-      <span class="Alert_Text">Please Login First</span>
+      <span class="Alert_Text">Please Login First!</span>
     </div>
     <div class="Alert_Icon_Parent_Div">
       <mat-icon
-        [ngClass]="LoginFailure == true ? 'Alert_Icon' : 'LoginSuccess'"
+        [ngClass]="NotLoggedIn == true ? 'Alert_Icon' : 'LoginSuccess'"
         class="Alert_Icon"
         ><span class="fa fa-exclamation-triangle"></span
       ></mat-icon>
@@ -18,7 +18,7 @@
 <ng-container *ngIf="BookingRequest">
   <div class="Alert_Div_Parent">
     <div class="Alert_Text_Parent_Div">
-      <span class="Alert_Text">Appointment Request Successfully</span>
+      <span class="Alert_Text">Appointment Request Successfully!</span>
     </div>
     <div class="Alert_Icon_Parent_Div">
       <mat-icon
@@ -34,7 +34,7 @@
 <ng-container *ngIf="LoginSuccess">
   <div class="Alert_Div_Parent">
     <div class="Alert_Text_Parent_Div">
-      <span class="Alert_Text">Login Successfully</span>
+      <span class="Alert_Text">Login Successfully!</span>
     </div>
     <div class="Alert_Icon_Parent_Div">
       <mat-icon
@@ -50,7 +50,7 @@
 <ng-container *ngIf="Logout">
   <div class="Alert_Div_Parent">
     <div class="Alert_Text_Parent_Div">
-      <span class="Alert_Text">Logout Successfully</span>
+      <span class="Alert_Text">Logout Successfully!</span>
     </div>
     <div class="Alert_Icon_Parent_Div">
       <mat-icon
@@ -62,11 +62,11 @@
   </div>
 </ng-container>
 
-<!--* Registered Success Alert  -->
+<!--* Registration Success Alert  -->
 <ng-container *ngIf="RegisteredSuccess">
   <div class="Alert_Div_Parent">
     <div class="Alert_Text_Parent_Div">
-      <span class="Alert_Text">Registered Successfully</span>
+      <span class="Alert_Text">Registered Successfully!</span>
     </div>
     <div class="Alert_Icon_Parent_Div">
       <mat-icon
