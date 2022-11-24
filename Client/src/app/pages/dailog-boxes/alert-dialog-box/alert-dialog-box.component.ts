@@ -14,6 +14,7 @@ export class AlertDialogBoxComponent implements OnInit {
   Registered: boolean = false;
   RegisteredSuccess: boolean = false;
   AvailabilityUpdated: boolean = false;
+  DocumentVerification: boolean = false;
 
   constructor(@Inject(MAT_SNACK_BAR_DATA) public data: string) {}
   ngOnInit(): void {
@@ -31,6 +32,8 @@ export class AlertDialogBoxComponent implements OnInit {
       this.RegisteredSuccess = true;
     } else if (this.data == 'Availability Updated') {
       this.AvailabilityUpdated = true;
+    } else if (this.data == 'Verification Request Sent') {
+      this.DocumentVerification = true;
     }
   }
 }

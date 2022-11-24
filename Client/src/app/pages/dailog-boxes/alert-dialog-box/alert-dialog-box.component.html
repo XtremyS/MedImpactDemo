@@ -93,3 +93,19 @@
     </div>
   </div>
 </ng-container>
+
+<!--* Availability Update Alert  -->
+<ng-container *ngIf="DocumentVerification">
+  <div class="Alert_Div_Parent">
+    <div class="Alert_Text_Parent_Div">
+      <span class="Alert_Text">Verification Request Sent Successfully </span>
+    </div>
+    <div class="Alert_Icon_Parent_Div">
+      <mat-icon
+        [ngClass]="DocumentVerification == true ? 'LoginSuccess' : 'Alert_Icon'"
+        class="Alert_Icon"
+        ><span class="fa fa-check-circle"></span
+      ></mat-icon>
+    </div>
+  </div>
+</ng-container>

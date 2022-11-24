@@ -13,6 +13,8 @@ import { Service } from 'src/services/service.service';
 })
 export class ManageProfileComponent implements OnInit {
   DoctorProfileData: any = {};
+  Images: any;
+  IsUploadBtnVisible: boolean = false;
 
   RadioValueSunday: number;
   RadioValueMonday: number;
@@ -83,5 +85,18 @@ export class ManageProfileComponent implements OnInit {
           this._ModalService.OpenAlertDialog('Availability Updated');
         }
       });
+  }
+  GetImg(event: any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.Images = file;
+      if (this.Images.type != '') {
+        this.IsUploadBtnVisible = true;
+      }
+    }
+  }
+  UploadDocument() {
+    this._ModalService.OpenAlertDialog('Verification Request Sent');
+    this.IsUploadBtnVisible = false;
   }
 }
