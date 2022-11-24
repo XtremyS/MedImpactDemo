@@ -29,11 +29,13 @@ export class DoctorRegistrationComponent implements OnInit {
   FilterdEducationArray: Observable<string[]>;
   EducationValue: string[] = [];
   EducationSuggestionArray: string[] = [
-    'MBBS',
-    'TTBPS',
-    'IMBS',
-    'IIMBS',
-    'IIIT',
+    'MBBS ',
+    'BDS ',
+    'BAMS ',
+    'BUMS ',
+    'BHMS',
+    'BYNS ',
+    'B.V.Sc & AH',
   ];
 
   //* Specialty FIELD INPUT VARIABLES
@@ -43,11 +45,21 @@ export class DoctorRegistrationComponent implements OnInit {
   FilteredSpecialtyArray: Observable<string[]>;
   SpecialtyValue: string[] = [];
   SpecialtySuggestionArray: string[] = [
-    'NERROSURGOEN',
-    'DENTIST',
-    'CHARDIOLOSITS',
-    'EYE',
-    'ORTHOD',
+    'Anesthesiologist',
+    'Allergist',
+    'Cardiologist',
+    'Chiropractor',
+    'Dentist',
+    'Dermatologist',
+    'Fertility Specialist',
+    'Gynecologist',
+    'Pediatrician',
+    'Radiologist',
+    'Podiatrist',
+    'Physical Therapist',
+    'Oncologist',
+    'Neurologist',
+    'Naturopath',
   ];
 
   constructor(
